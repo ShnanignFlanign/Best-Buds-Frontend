@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+.custom-row {
+  width: 960px;
+  margin: 0 auto;
+}
 .custom-hdr {
 border-bottom: solid #c0c0c0 1px;
 padding-bottom: 30px;

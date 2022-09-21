@@ -11,8 +11,8 @@ class Header extends Component{
       <Container fluid className="custom-hdr">
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
-          <Button variant="outline-success">Register</Button>
           <Nav.Link href="#">Sign-In</Nav.Link>
+          <Button variant="outline-success">Register</Button>
         </Nav>
       </Container>
       </Navbar>
