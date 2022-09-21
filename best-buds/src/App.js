@@ -1,12 +1,15 @@
-import './App.css';
+import React, {Component} from 'react'
+import Footer from './Footer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
-  );
+class App extends Component{
+  render (){
+    return(
+      <div>
+       <h1>Best Buds</h1>
+       <Footer/>
+      </div>
+    )
+  }
 }
 
 export default App;
