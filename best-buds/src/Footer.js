@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 class Footer extends Component{
   render(){
     return(
-      <Container fluid>
+      <Container fluid fixed="bottom">
         <Row>
         <Col> &copy; Copyright 2022</Col>
         <Col>
