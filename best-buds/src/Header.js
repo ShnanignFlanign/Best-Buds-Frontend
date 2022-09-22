@@ -7,8 +7,9 @@ import Button from 'react-bootstrap/Button'
 class Header extends Component{
   render(){
     return(
+      <div className="custom-hdr">
       <Navbar expand="lg">
-      <Container fluid className="custom-hdr">
+      <Container>
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
           <Nav.Link href="#">Sign-In</Nav.Link>
@@ -16,6 +17,7 @@ class Header extends Component{
         </Nav>
       </Container>
       </Navbar>
+      </div>
     )
   }
 }

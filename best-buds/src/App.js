@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Footer from './Footer'
 import Header from './Header'
+import Plant from './Plant'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,14 +12,20 @@ class App extends Component{
     return(
       <div>
       <Header/>
-      <Container fliud>
+      <Container>
         <Row>
           <Col>
-          <h1>Green thumbs up! Learn how to grow your plants one drop at a time.</h1>
+          <h1>Nuture your green thumbs with Best Buds. The app that helps you take care of your plants!</h1>
           </Col>
           <Col>
           <Image width={500} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
           </Col>
+        </Row>
+        <Row>
+        <h2>Your Buds</h2>
+        <Plant/>
+        <Plant/>
+        <Plant/>
         </Row>
       </Container>
        <Footer/>

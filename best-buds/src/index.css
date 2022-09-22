@@ -13,8 +13,12 @@ code {
     monospace;
 }
 
+h1{
+  font-size: 90px;
+}
+
 .custom-row {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
 }
 .custom-hdr {
