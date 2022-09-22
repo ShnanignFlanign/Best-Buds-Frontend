@@ -28,7 +28,8 @@ class PlantModal extends Component {
               <Image width={200} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
             </Col>
               <Col xs={12} md={8}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+               <i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}></i><h5>Water Need</h5> | <i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}></i><h5>Light Need</h5>
+                <h5>Description</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
                 </Col>
             </Row>
             </Container>

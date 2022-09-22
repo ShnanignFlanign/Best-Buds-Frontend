@@ -1,9 +1,5 @@
 import React, { Component} from 'react'
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
-import Card from 'react-bootstrap/Card'
-import Nav from 'react-bootstrap/Nav'
-import Button from 'react-bootstrap/Button'
+import {Col, Card, Nav} from "react-bootstrap";
 import PlantModal from './PlantModal'
 
 class Plant extends Component{

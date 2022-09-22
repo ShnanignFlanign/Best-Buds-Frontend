@@ -2,10 +2,8 @@ import React, {Component} from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import Plant from './Plant'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
+import {Container, Row, Col, Image} from "react-bootstrap"
+
 
 class App extends Component{
   render (){
