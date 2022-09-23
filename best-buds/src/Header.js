@@ -10,9 +10,12 @@ class Header extends Component{
       <div className="custom-hdr">
       <Navbar expand="lg">
       <Container>
+        {/* Link to home page here */}
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
+          {/* Link to sign in modal here */}
           <Nav.Link href="#">Sign-In</Nav.Link>
+          {/* Link to log in modal here */}
           <Button variant="outline-success">Register</Button>
         </Nav>
       </Container>
