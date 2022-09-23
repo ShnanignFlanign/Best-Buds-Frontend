@@ -10,9 +10,12 @@ class Plant extends Component{
     super(props) 
     this.state = {
       // we need to set the plants array in state here or pass it down as props from app.js
-      plants: this.props.plants
+      plants: this.props.plants,
+      readMore: false
     }
   }
+
+  //read more method to open up all the info on the plant 
 
   //delete method 
   

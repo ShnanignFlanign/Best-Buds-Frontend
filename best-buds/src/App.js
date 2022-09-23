@@ -8,7 +8,20 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image'
 import './App.css'
 
+//base plants URL
+//base users URL
+
 class App extends Component{
+  constructor(){
+    super()
+    this.state = {
+      plants:[],
+      users: [],
+    }
+  }
+
+
+
   render (){
     return(
       <div>
@@ -24,6 +37,8 @@ class App extends Component{
         </Row>
         <Row>
         <h2>Your Buds</h2>
+        {/* shouldnt we be mapping?? */}
+        {/* should we be using seeded data and a separate modal */}
         <Plant/>
         <Plant/>
         <Plant/>
