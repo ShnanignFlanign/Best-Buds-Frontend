@@ -1,3 +1,7 @@
+.defaultImg {
+  background: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Plant_No_Image.svg/2048px-Plant_No_Image.svg.png'
+}
+
 .App {
   text-align: center;
 }

@@ -18,7 +18,7 @@ class Plant extends Component{
             <Nav.Link href="#"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}}></i></Nav.Link>
           </Nav.Item>
       </Nav>
-      <Card.Img variant="top" src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" />
+      <Card.Img variant="top"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Plant_No_Image.svg/2048px-Plant_No_Image.svg.png"/>
       <Card.Body className="text-center">
         <Card.Title>Plant Name</Card.Title>
         <Button variant="primary">Go somewhere</Button>
