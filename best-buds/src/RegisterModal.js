@@ -1,28 +1,55 @@
 import React, {Component} from 'react'
 
+const baseURL = 'http://localhost:3003/plants'
+
 class Register extends Component{
     constructor(props){
         super(props)
         this.state = {
             username:'',
             email:'',
-            password:''
+            password:'',
+            users: []
         }
     }
 
+    //This can go in app.js and be passed down as props 
     handleChange = (e) =>{
         this.setState({
             [e.target.id]: e.target.value
         })
     }
 
+    getUsers = () =>{
+        fetch(baseURL + 'users')
+        .then(res => {
+            if(res.status === 200){
+                return res.json()
+            }else{
+                return []
+            }
+        })
+        .then(data => {
+            this.setState({users: data.users})
+        })
+    }
+
     handleAddUser = (user) =>{
-        
+        const copyUsers = [...this.state.users]
+        console.log(user)
+        this.setState({
+            users: copyUsers
+        })
     }
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        fetch('http://localhost:3003/plants', {
+        //
+        //
+        //What do I need to add to hit the right route???
+        //
+        //
+        fetch(baseURL, {
             method:'POST',
             body: JSON.stringify({
                 username:this.state.name,
@@ -36,12 +63,7 @@ class Register extends Component{
         .then(res => res.json())
         .then(resJson => {
             console.log('NewForm - resJason' + resJson)
-            //
-            //
-            // Need to create a method to add a user 
-            //
-            //
-            //this.props.handleAddHoliday(resJson)
+            this.state.handleAddUser(resJson)
             this.setState = ({
                 username: '',
                 email:'',
