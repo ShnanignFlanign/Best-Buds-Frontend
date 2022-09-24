@@ -8,8 +8,8 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image'
 import './App.css'
 
-//base plants URL
-//base users URL
+//base plants URL '/plants'
+//base users URL '/users'
 
 class App extends Component{
   constructor(){
