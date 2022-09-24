@@ -19,7 +19,7 @@ class Header extends Component{
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
           {/* Link to sign in modal here */}
-          <SignInModal handleSubmit={this.props.handleSubmit}/>
+          <SignInModal updateUser={this.props.updateUser}/>
           <RegisterSigninModal updateUser={this.props.updateUser}/>
         </Nav>
       </Container>

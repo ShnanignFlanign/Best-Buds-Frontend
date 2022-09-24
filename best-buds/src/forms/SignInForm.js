@@ -15,28 +15,38 @@ class SignInForm extends Component{
             [e.target.id]: e.target.value
         })
     }
-
+    handleAddUser = (user) =>{
+        const copyUsers = [...this.state.users]
+        copyUsers.push(user)
+        this.setState({
+            users:copyUsers
+        })
+    }
     //this needs to be changed to log the user in
-    handleSubmit = (e) =>{
+    handleSignin = (e) =>{
+        const data = JSON.stringify({
+            username:this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        })
+        console.log(data)
         e.preventDefault()
         fetch('http://localhost:3003/users/signin', {
             method:'POST',
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
-            }),
+            body: data,
             headers:{
                 'Content-Type':'application/json'
             }
         })
         .then(res => res.json())
         .then(resJson => {
-            let copyUsers = [...this.state.users]
-            copyUsers.push(resJson)
+            console.log('NewUser - resJson' + resJson)
+            this.props.updateUser(resJson, true)
+            this.handleAddUser(resJson)
             this.setState = ({
+                username: '',
                 email:'',
-                password:'',
-                users: copyUsers
+                password:''
             })
         })
     }
@@ -44,7 +54,7 @@ class SignInForm extends Component{
     render(){
         return(
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSignin}>
 
                     <label htmlFor="email">Email:</label>
                     <input

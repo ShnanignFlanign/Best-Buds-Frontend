@@ -21,6 +21,8 @@ class AddPlantModal extends Component{
         })
     }
 
+    
+
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
