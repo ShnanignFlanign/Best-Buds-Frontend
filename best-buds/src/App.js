@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Footer from './Footer'
-import Header from './Header'
-import Plant from './Plant'
+import Footer from '../src/components/Footer'
+import Header from '../src/components/Header'
+import Plant from '../src/components/Plant'
 import {Container, Row, Col, Button} from "react-bootstrap"
 import './App.css'
 //base plants URL '/plants'
