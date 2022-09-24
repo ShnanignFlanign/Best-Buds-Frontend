@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col} from "react-bootstrap";
 import RegisterForm from '../forms/RegisterForm'
 
 class RegisterSigninModal extends Component {
