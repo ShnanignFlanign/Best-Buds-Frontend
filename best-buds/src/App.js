@@ -22,7 +22,7 @@ class App extends Component{
     return(
       <div>
       <Header/>
-      <Container className="pt-5 pb-5">
+      <Container className="main-container">
         <Row>
         <Col xs={12} md={6}>
         <h2>Your Buds</h2>
