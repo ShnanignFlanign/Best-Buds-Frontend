@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import {Nav, Navbar, Container, Button,} from "react-bootstrap";
+import {Nav, Navbar, Container} from "react-bootstrap";
 import RegisterSigninModal from './RegisterSigninModal'
 
 class Header extends Component{

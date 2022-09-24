@@ -17,10 +17,25 @@ h1{
   font-size: 70px;
 }
 
-.custom-row {
-  max-width: 960px;
-  margin: 0 auto;
+a{
+  color: white;
 }
+
+a:hover {
+  color: #1d301d
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 80%;
+  padding: 80px 0 80px 0;
+}
+
+.custom-row {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .custom-hdr {
 border-bottom: solid #c0c0c0 1px;
 padding-bottom: 30px;
