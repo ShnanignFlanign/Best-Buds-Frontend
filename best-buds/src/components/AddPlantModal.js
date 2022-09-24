@@ -9,8 +9,9 @@ class AddPlantModal extends Component{
             lightNeed:'',
             waterNeed:'',
             description:'',
-            calssification:'',
-            username:''
+            classification:'',
+            username:'',
+            plants: []
         }
     }
 
@@ -20,7 +21,48 @@ class AddPlantModal extends Component{
         })
     }
 
-    
+    handleAddPlant = (plant) =>{
+        const copyPlants = [...this.state.plants]
+        copyPlants.push(plant)
+        this.setState({
+            plants:copyPlants
+        })
+    }
+
+    handleSubmit = (e) =>{
+        e.preventDefault()
+        fetch('http://localhost:3003/plants', {
+            method:'POST',
+            body: JSON.stringify({
+                name:this.state.name,
+                img:this.state.img,
+                lightNeed:this.state.lightNeed,
+                waterNeed:this.state.waterNeed,
+                description:this.state.description,
+                calssification:this.state.classification,
+                //need a way to attach the username to the plant that is being created 
+                username:''
+            }),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(resJson => {
+            console.log('NewForm - resJason' + resJson)
+            this.handleAddPlant(resJson)
+            this.setState = ({
+                name:'',
+                img:'',
+                lightNeed:'',
+                waterNeed:'',
+                description:'',
+                classification:'',
+                username:''
+            })
+        })
+    }
+
 
     render(){
         return(
