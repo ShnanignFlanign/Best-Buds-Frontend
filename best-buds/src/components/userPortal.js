@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Plant from './Plant'
 
-class userPortal extends Component{
+class UserPortal extends Component{
     render (){
       return(
         <div>
@@ -15,5 +15,5 @@ class userPortal extends Component{
     }
   }
   
-  export default userPortal;
+  export default UserPortal;
   
