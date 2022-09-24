@@ -3,9 +3,21 @@ import Footer from './Footer'
 import Header from './Header'
 import Plant from './Plant'
 import {Container, Row, Col, Button} from "react-bootstrap"
-
+import './App.css'
+//base plants URL '/plants'
+//base users URL '/users'
 
 class App extends Component{
+  constructor(){
+    super()
+    this.state = {
+      plants:[],
+      users: [],
+    }
+  }
+
+
+
   render (){
     return(
       <div>
@@ -22,6 +34,8 @@ class App extends Component{
         </Col>
         </Row>
         <Row className="pt-5">
+        {/* shouldnt we be mapping?? */}
+        {/* should we be using seeded data and a separate modal */}
         <Plant/>
         <Plant/>
         <Plant/>
