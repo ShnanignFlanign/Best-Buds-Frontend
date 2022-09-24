@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
 import RegisterForm from './RegisterForm'
 
-class RegisterModal extends Component {
+class RegisterSigninModal extends Component {
   state = {
     isOpen: false
   };
@@ -36,4 +36,4 @@ class RegisterModal extends Component {
   }
 }
 
-export default RegisterModal;
+export default RegisterSigninModal;

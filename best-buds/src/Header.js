@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import {Nav, Navbar, Container, Button,} from "react-bootstrap";
-import RegisterModal from './RegisterModal'
+import RegisterSigninModal from './RegisterSigninModal'
 
 class Header extends Component{
   render(){
@@ -11,7 +11,7 @@ class Header extends Component{
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
           <Nav.Link href="#">Sign-In</Nav.Link>
-          <RegisterModal/>
+          <RegisterSigninModal/>
         </Nav>
       </Container>
       </Navbar>
