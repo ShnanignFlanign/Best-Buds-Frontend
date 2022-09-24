@@ -4,6 +4,14 @@ import Plant from './Plant'
 class UserPortal extends Component{
   constructor(){
     super()
+    this.state = {
+      name:'',
+      img: '',
+      lightNeed:'',
+      waterNeed: '',
+      description: '',
+      classification: ''
+    }
   }
 
   handleEdit = (plant) =>{
@@ -31,7 +39,7 @@ class UserPortal extends Component{
         })
     })
   }
-  
+
     render (){
       return(
         <div>
