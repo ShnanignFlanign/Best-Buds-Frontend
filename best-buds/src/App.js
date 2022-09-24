@@ -32,6 +32,63 @@ class App extends Component{
     this.getPlants()
   }
 
+  handleSubmit = (e) =>{
+    e.preventDefault()
+    fetch('http://localhost:3003/users/signin', {
+        method:'POST',
+        body: JSON.stringify({
+            email: this.state.email,
+            password: this.state.password
+        }),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+        let copyUsers = [...this.state.users]
+        copyUsers.push(resJson)
+        this.setState = ({
+            email:'',
+            password:'',
+            users: copyUsers
+        })
+    })
+  }
+
+  updateUser = (user) =>{
+    this.setState = ({
+      users: user
+    })
+  }
+
+  // handleRegister = (e) =>{
+  //   e.preventDefault()
+  //   const data = JSON.stringify({
+  //     username:this.state.name,
+  //     email: this.state.email,
+  //     password: this.state.password
+  //   })
+  //   console.log(data)
+  //   fetch('http://localhost:3003/users/signup', {
+  //       method:'POST',
+  //       body: data,
+  //       headers:{
+  //           'Content-Type':'application/json'
+  //       }
+  //   })
+  //   .then(res => res.json())
+  //   .then(resJson => {
+  //       console.log('NewUser - resJson' + resJson)
+  //       this.handleAddUser(resJson)
+  //       this.setState = ({
+  //           username: '',
+  //           email:'',
+  //           password:''
+  //       })
+  //   })
+  //}
+
   getPlants = () => {
     fetch(baseURL + '/plants')
      .then((res) => {
@@ -50,7 +107,7 @@ class App extends Component{
   render (){
     return(
       <div>
-      <Header/>
+      <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
       <Container className="pt-5 pb-5">
         {this.state.isLoggedIn ?
         <UserPortal></UserPortal> :<Welcome></Welcome> 
