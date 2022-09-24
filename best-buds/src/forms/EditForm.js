@@ -21,38 +21,6 @@ class AddPlantModal extends Component{
         })
     }
 
-    handleEdit = (plant) =>{
-        fetch('http://localhost:3003/plants', {
-            method:'POST',
-            body: JSON.stringify({
-                name:this.state.name,
-                img:this.state.img,
-                lightNeed:this.state.lightNeed,
-                waterNeed:this.state.waterNeed,
-                description:this.state.description,
-                calssification:this.state.classification,
-            }),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(resJson => {
-            console.log('NewPlant - resJson' + resJson)
-            this.handleAddPlant(resJson)
-            this.setState = ({
-                name:'',
-                img:'',
-                lightNeed:'',
-                waterNeed:'',
-                description:'',
-                classification:'',
-                username:''
-            })
-        })
-    }
-
-
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
