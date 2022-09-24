@@ -27,7 +27,7 @@ class RegisterForm extends Component{
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        fetch('http://localhost:3003/plants', {
+        fetch('http://localhost:3003/users/signup', {
             method:'POST',
             body: JSON.stringify({
                 username:this.state.name,
@@ -40,7 +40,7 @@ class RegisterForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('NewForm - resJason' + resJson)
+            console.log('NewUser - resJson' + resJson)
             this.handleAddUser(resJson)
             this.setState = ({
                 username: '',

@@ -17,33 +17,33 @@ class SignInForm extends Component{
     }
 
     //this needs to be changed to log the user in
-    // handleSubmit = (e) =>{
-    //     e.preventDefault()
-    //     fetch('http://localhost:3003/plants', {
-    //         method:'POST',
-    //         body: JSON.stringify({
-    //             email: this.state.email,
-    //             password: this.state.password
-    //         }),
-    //         headers:{
-    //             'Content-Type':'application/json'
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(resJson => {
-    //         console.log('NewForm - resJason' + resJson)
-    //         //
-    //         //
-    //         // Need to create a method to add a user
-    //         //
-    //         //
-    //         //this.props.handleAddHoliday(resJson)
-    //         this.setState = ({
-    //             email:'',
-    //             password:''
-    //         })
-    //     })
-    // }
+    handleSubmit = (e) =>{
+        e.preventDefault()
+        fetch('http://localhost:3003/users/signin', {
+            method:'POST',
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+            }),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(resJson => {
+            console.log('UserLoggedIn - resJason' + resJson)
+            //
+            //
+            // Need to create a method to add a user
+            //
+            //
+            //this.props.handleAddHoliday(resJson)
+            this.setState = ({
+                email:'',
+                password:''
+            })
+        })
+    }
 
     render(){
         return(

@@ -49,7 +49,7 @@ class AddPlantModal extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('NewForm - resJason' + resJson)
+            console.log('NewPlant - resJson' + resJson)
             this.handleAddPlant(resJson)
             this.setState = ({
                 name:'',
