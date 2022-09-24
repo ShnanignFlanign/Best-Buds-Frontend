@@ -15,6 +15,19 @@ class Plant extends Component{
   //read more method to open up all the info on the plant 
 
   //delete method 
+  handleDeletePlant = (id) =>{
+    fetch('http://localhost:3003/plants/' + id, {
+      method:'DELETE'
+    })
+    .then(res =>{
+      const copyPlants = [...this.state.plants]
+      const findIndex = this.state.plants.findIndex((plant) => plant._id === id)
+      copyPlants.splice(findIndex,1)
+      this.setState({
+        plants: copyPlants
+      })
+    })
+  }
   
   //edit method
 
@@ -30,6 +43,7 @@ class Plant extends Component{
             <Nav.Link href="#"><i class="bi bi-pencil" style={{ fontSize: 30, color: '#333333'}}></i> </Nav.Link>
           </Nav.Item>
           <Nav.Item>
+          {/* Delete functionality here */}
             <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}}></i></Nav.Link>
           </Nav.Item>
       </Nav>
