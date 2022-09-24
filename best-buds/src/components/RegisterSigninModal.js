@@ -3,9 +3,12 @@ import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
 import RegisterForm from '../forms/RegisterForm'
 
 class RegisterSigninModal extends Component {
-  state = {
-    isOpen: false
-  };
+  constructor(){
+    super()
+    this.state = {
+      isOpen: false
+    };
+  }
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
@@ -25,7 +28,7 @@ class RegisterSigninModal extends Component {
           <Container>
             <Row>
             <Col>
-            <RegisterForm/>
+            <RegisterForm updateUser={this.props.updateUser}/>
               </Col>
             </Row>
             </Container>
