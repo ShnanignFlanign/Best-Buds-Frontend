@@ -6,7 +6,8 @@ class RegisterForm extends Component{
         this.state = {
             username:'',
             email:'',
-            password:''
+            password:'',
+            users: []
         }
     }
 
@@ -17,12 +18,16 @@ class RegisterForm extends Component{
     }
 
     handleAddUser = (user) =>{
-
+        const copyUsers = [...this.state.users]
+        copyUsers.push(user)
+        this.setState({
+            users:copyUsers
+        })
     }
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        fetch('http://localhost:3003/plants', {
+        fetch('http://localhost:3003/users/signup', {
             method:'POST',
             body: JSON.stringify({
                 username:this.state.name,
@@ -35,13 +40,8 @@ class RegisterForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('NewForm - resJason' + resJson)
-            //
-            //
-            // Need to create a method to add a user
-            //
-            //
-            //this.props.handleAddHoliday(resJson)
+            console.log('NewUser - resJson' + resJson)
+            this.handleAddUser(resJson)
             this.setState = ({
                 username: '',
                 email:'',
