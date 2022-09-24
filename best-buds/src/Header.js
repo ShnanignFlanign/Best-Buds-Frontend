@@ -1,8 +1,6 @@
 import React, { Component} from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button'
+import {Nav, Navbar, Container, Button,} from "react-bootstrap";
+import RegisterSigninModal from './RegisterSigninModal'
 
 class Header extends Component{
   render(){
@@ -15,8 +13,7 @@ class Header extends Component{
         <Nav>
           {/* Link to sign in modal here */}
           <Nav.Link href="#">Sign-In</Nav.Link>
-          {/* Link to log in modal here */}
-          <Button variant="outline-success">Register</Button>
+          <RegisterSigninModal/>
         </Nav>
       </Container>
       </Navbar>

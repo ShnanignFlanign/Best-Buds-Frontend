@@ -2,27 +2,23 @@ import React, {Component} from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import Plant from './Plant'
-import {Container, Row, Col, Button} from "react-bootstrap"
-import './App.css'
-//base plants URL '/plants'
-//base users URL '/users'
+import {Container, Row, Col, Image} from "react-bootstrap"
+
 
 class App extends Component{
-  constructor(){
-    super()
-    this.state = {
-      plants:[],
-      users: [],
-    }
-  }
-
-
-
   render (){
     return(
       <div>
       <Header/>
       <Container className="pt-5 pb-5">
+        <Row>
+          <Col>
+          <h1>Nuture your green thumbs with Best Buds. The app that helps you take care of your plants!</h1>
+          </Col>
+          <Col>
+          <Image width={500} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
+          </Col>
+        </Row>
         <Row>
         <Col xs={12} md={6}>
         <h2>Your Buds</h2>
@@ -32,13 +28,6 @@ class App extends Component{
           Add a Plant
         </Button>
         </Col>
-        </Row>
-        <Row className="pt-5">
-        {/* shouldnt we be mapping?? */}
-        {/* should we be using seeded data and a separate modal */}
-        <Plant/>
-        <Plant/>
-        <Plant/>
         </Row>
       </Container>
        <Footer/>
