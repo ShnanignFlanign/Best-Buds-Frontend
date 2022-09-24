@@ -31,16 +31,12 @@ class SignInForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('UserLoggedIn - resJason' + resJson)
-            //
-            //
-            // Need to create a method to add a user
-            //
-            //
-            //this.props.handleAddHoliday(resJson)
+            let copyUsers = [...this.state.users]
+            copyUsers.push(resJson)
             this.setState = ({
                 email:'',
-                password:''
+                password:'',
+                users: copyUsers
             })
         })
     }
