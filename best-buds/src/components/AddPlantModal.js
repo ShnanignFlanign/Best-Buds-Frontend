@@ -14,9 +14,17 @@ class AddPlantModal extends Component{
         }
     }
 
+    handleChange = (e) =>{
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    
+
     render(){
         return(
-            <>
+            <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input
                     type="text"
@@ -78,7 +86,7 @@ class AddPlantModal extends Component{
                 />
 
                 <input type="submit" value="Add Bud!"/>
-            </>
+            </form>
         )
     }
 }

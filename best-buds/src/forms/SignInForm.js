@@ -5,7 +5,8 @@ class SignInForm extends Component{
         super(props)
         this.state = {
             email:'',
-            password:''
+            password:'',
+            users:[]
         }
     }
 
@@ -15,37 +16,34 @@ class SignInForm extends Component{
         })
     }
 
-    handleAddUser = (user) =>{
-
-    }
-
-    handleSubmit = (e) =>{
-        e.preventDefault()
-        fetch('http://localhost:3003/plants', {
-            method:'POST',
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
-            }),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(resJson => {
-            console.log('NewForm - resJason' + resJson)
-            //
-            //
-            // Need to create a method to add a user
-            //
-            //
-            //this.props.handleAddHoliday(resJson)
-            this.setState = ({
-                email:'',
-                password:''
-            })
-        })
-    }
+    //this needs to be changed to log the user in
+    // handleSubmit = (e) =>{
+    //     e.preventDefault()
+    //     fetch('http://localhost:3003/plants', {
+    //         method:'POST',
+    //         body: JSON.stringify({
+    //             email: this.state.email,
+    //             password: this.state.password
+    //         }),
+    //         headers:{
+    //             'Content-Type':'application/json'
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(resJson => {
+    //         console.log('NewForm - resJason' + resJson)
+    //         //
+    //         //
+    //         // Need to create a method to add a user
+    //         //
+    //         //
+    //         //this.props.handleAddHoliday(resJson)
+    //         this.setState = ({
+    //             email:'',
+    //             password:''
+    //         })
+    //     })
+    // }
 
     render(){
         return(
