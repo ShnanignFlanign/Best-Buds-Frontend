@@ -56,3 +56,19 @@ padding-top: 30px;
 .card {
   border: none;
 }
+
+.formDesign h5{
+   color: #888888;
+}
+
+Form.Control{
+  border: none;
+  border-radius: 0;
+}
+
+.buttonWidth {
+  width: 100%;
+  padding: 20px 0 20px 0;
+  margin-top: 20px;
+  font-weight:bold;
+}

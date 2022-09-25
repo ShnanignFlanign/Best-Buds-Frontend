@@ -19,7 +19,7 @@ class AddPlantModal extends Component {
           </Button>
         </div>
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
+          <Modal.Header className="border-0" closeButton>
           </Modal.Header>
           <Modal.Body>
           <Container>

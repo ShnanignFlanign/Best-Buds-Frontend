@@ -68,9 +68,10 @@ class AddPlantForm extends Component{
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
-            <fieldset>
+            <fieldset className="formDesign">
+              <h3 className="text-center d-block">New Bud</h3>
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="name"><h4>Plant Name</h4></Form.Label>
+                <Form.Label htmlFor="name"><h5>Plant Name</h5></Form.Label>
                 <Form.Control
                     type="text"
                     htmlFor="name"
@@ -82,7 +83,7 @@ class AddPlantForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="img"><h4>Image Link</h4></Form.Label>
+                <Form.Label htmlFor="img"><h5>Image Link</h5></Form.Label>
                 <Form.Control
                     type="text"
                     htmlFor="img"
@@ -94,7 +95,7 @@ class AddPlantForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="lightNeed"><h4>Light Need</h4></Form.Label>
+                <Form.Label htmlFor="lightNeed"><h5>Light Need</h5></Form.Label>
                 <Form.Control
                     type="text"
                     htmlFor="lightNeed"
@@ -106,7 +107,7 @@ class AddPlantForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="waterNeed"><h4>Water Need</h4></Form.Label>
+                <Form.Label htmlFor="waterNeed"><h5>Water Need</h5></Form.Label>
                 <Form.Control
                     type="text"
                     htmlFor="waterNeed"
@@ -118,9 +119,8 @@ class AddPlantForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="description"><h4>Description</h4></Form.Label>
-                <Form.Control
-                    type="text"
+                <Form.Label htmlFor="description"><h5>Description</h5></Form.Label>
+                <Form.Control as="textarea" rows={4}
                     htmlFor="description"
                     id="description"
                     name="description"
@@ -130,7 +130,7 @@ class AddPlantForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="classification"><h4>Classification</h4></Form.Label>
+                <Form.Label htmlFor="classification"><h5>Classification</h5></Form.Label>
                 <Form.Select
                     htmlFor="classification"
                     id="classification"
@@ -143,10 +143,11 @@ class AddPlantForm extends Component{
                     <option>3</option>
                 </Form.Select>
                 </Form.Group>
-
-                <Button variant="success" type="submit">
-                "Add Bud!
+                <div className="d-flex align-items-center justify-content-center">
+                <Button className="buttonWidth" variant="success" size="lg" type="submit">
+                Add Your Bud!
                 </Button>
+                </div>
                 </fieldset>
             </form>
         )
