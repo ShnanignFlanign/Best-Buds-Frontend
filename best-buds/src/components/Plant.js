@@ -12,8 +12,6 @@ class Plant extends Component{
     }
   }
 
-  //read more method to open up all the info on the plant 
-
   //delete method 
   handleDeletePlant = (id) =>{
     fetch('http://localhost:3003/plants/' + id, {
