@@ -56,10 +56,10 @@ class App extends Component{
     })
   }
 
-  updateUser = (user, bool) =>{
+  updateUser = (user) =>{
     this.setState = ({
       users: user,
-      isLoggedIn: bool
+      isLoggedIn: true
     })
   }
 

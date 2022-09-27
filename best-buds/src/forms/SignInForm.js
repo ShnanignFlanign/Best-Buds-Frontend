@@ -41,7 +41,7 @@ class SignInForm extends Component{
         .then(res => res.json())
         .then(resJson => {
             console.log('NewUser - resJson' + resJson)
-            this.props.updateUser(resJson, true)
+            this.props.updateUser(resJson)
             this.handleAddUser(resJson)
             this.setState = ({
                 username: '',
@@ -74,7 +74,7 @@ class SignInForm extends Component{
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
-                    <input type="submit" value="Create Account"/>
+                    <input type="submit" value="Sign In"/>
                 </form>
             </>
         )

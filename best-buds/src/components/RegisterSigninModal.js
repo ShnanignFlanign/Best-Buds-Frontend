@@ -27,8 +27,8 @@ class RegisterSigninModal extends Component {
           <Modal.Body>
           <Container>
             <Row>
-            <Col>
-            <RegisterForm updateUser={this.props.updateUser}/>
+              <Col>
+                <RegisterForm updateUser={this.props.updateUser}/>
               </Col>
             </Row>
             </Container>
