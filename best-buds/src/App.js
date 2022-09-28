@@ -9,14 +9,7 @@ import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
 
-let baseURL = ''
-
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003'
-} else {
-  baseURL = 'your heroku bakend url here'
-}
-
+let baseURL = process.env.REACT_APP_BASE_URL
 class App extends Component{
   constructor(){
     super()
@@ -60,32 +53,6 @@ class App extends Component{
     })
   }
 
-  // handleRegister = (e) =>{
-  //   e.preventDefault()
-  //   const data = JSON.stringify({
-  //     username:this.state.name,
-  //     email: this.state.email,
-  //     password: this.state.password
-  //   })
-  //   console.log(data)
-  //   fetch('http://localhost:3003/users/signup', {
-  //       method:'POST',
-  //       body: data,
-  //       headers:{
-  //           'Content-Type':'application/json'
-  //       }
-  //   })
-  //   .then(res => res.json())
-  //   .then(resJson => {
-  //       console.log('NewUser - resJson' + resJson)
-  //       this.handleAddUser(resJson)
-  //       this.setState = ({
-  //           username: '',
-  //           email:'',
-  //           password:''
-  //       })
-  //   })
-  //}
 
   getPlants = () => {
     fetch(baseURL + '/plants')
