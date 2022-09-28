@@ -8,6 +8,7 @@ import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
 
+let baseURL = process.env.REACT_APP_BASE_URL
 class App extends Component{
   constructor(){
     super()
