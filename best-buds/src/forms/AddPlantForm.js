@@ -138,9 +138,11 @@ class AddPlantForm extends Component{
                     value={this.state.classification}
                     onChange={this.handleChange}
                 >
-                <option>1</option>
-                  <option>2</option>
-                    <option>3</option>
+                <option>Algae</option>
+                  <option>Moss</option>
+                    <option>Fern</option>
+                        <option>Coniferous</option>
+                            <option>Flowering</option>
                 </Form.Select>
                 </Form.Group>
                 <div className="d-flex align-items-center justify-content-center">
