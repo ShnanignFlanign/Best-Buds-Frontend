@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 class App extends Component{
   constructor(){
     super()
+    this.updateUser = this.updateUser.bind(this)
     this.state = {
       plants:[],
       users: [],

@@ -25,7 +25,6 @@ class SignInForm extends Component{
     //this needs to be changed to log the user in
     handleSignin = (e) =>{
         const data = JSON.stringify({
-            username:this.state.username,
             email: this.state.email,
             password: this.state.password
         })

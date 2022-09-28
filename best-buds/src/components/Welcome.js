@@ -32,12 +32,10 @@ class Welcome extends Component{
         <Row className="pt-5">
         {/* shouldnt we be mapping?? */}
         {/* should we be using seeded data and a separate modal */}
-        <Plant/>
-        <Plant/>
-        <Plant/>
+          <Plant></Plant>
+          <Plant></Plant>
         </Row>
-        <Plant></Plant>
-        <Plant></Plant>
+        
         </Row>
 
       </div>
