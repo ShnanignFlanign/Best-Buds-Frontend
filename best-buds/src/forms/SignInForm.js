@@ -15,13 +15,7 @@ class SignInForm extends Component{
             [e.target.id]: e.target.value
         })
     }
-    handleAddUser = (user) =>{
-        const copyUsers = [...this.state.users]
-        copyUsers.push(user)
-        this.setState({
-            users:copyUsers
-        })
-    }
+
     //this needs to be changed to log the user in
     handleSignin = (e) =>{
         const data = JSON.stringify({
