@@ -10,12 +10,6 @@ class SignInForm extends Component{
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     //this needs to be changed to log the user in
     handleSignin = (e) =>{
         const data = JSON.stringify({

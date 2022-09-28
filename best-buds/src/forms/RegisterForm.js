@@ -11,12 +11,6 @@ class RegisterForm extends Component{
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     handleAddUser = (user) =>{
         const copyUsers = [...this.state.users]
         copyUsers.push(user)
