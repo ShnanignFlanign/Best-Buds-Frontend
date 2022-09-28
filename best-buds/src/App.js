@@ -1,22 +1,12 @@
 import React, {Component} from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Welcome from './components/Welcome'
-import UserPortal from './components/userPortal'
-import {Container} from "react-bootstrap"
+import Plant from './components/Plant'
+import AddPlantModal from './components/AddPlantModal'
+import {Container, Row, Col, Button} from "react-bootstrap"
 import './App.css'
-
 //base plants URL '/plants'
 //base users URL '/users'
-
-let baseURL = ''
-
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003'
-} else {
-  baseURL = 'your heroku bakend url here'
-}
-
 
 class App extends Component{
   constructor(){
@@ -24,13 +14,9 @@ class App extends Component{
     this.state = {
       plants:[],
       users: [],
-      isLoggedIn: false
     }
   }
 
-  componentDidMount(){
-    this.getPlants()
-  }
 
   handleSubmit = (e) =>{
     e.preventDefault()
@@ -104,14 +90,29 @@ class App extends Component{
      });
    }
 
+
   render (){
     return(
       <div>
       <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
       <Container className="pt-5 pb-5">
-        {this.state.isLoggedIn ?
-        <UserPortal></UserPortal> :<Welcome></Welcome> 
-        }
+        <Row>
+        <Col xs={12} md={6}>
+        <h2>Your Buds</h2>
+        </Col>
+        <Col xs={12} md={6} className="d-flex justify-content-end">
+        <Button variant="outline-success">
+          <AddPlantModal/>
+        </Button>
+        </Col>
+        </Row>
+        <Row className="pt-5">
+        {/* shouldnt we be mapping?? */}
+        {/* should we be using seeded data and a separate modal */}
+        <Plant/>
+        <Plant/>
+        <Plant/>
+        </Row>
       </Container>
        <Footer/>
       </div>
