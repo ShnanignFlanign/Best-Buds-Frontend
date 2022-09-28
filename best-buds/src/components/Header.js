@@ -20,7 +20,7 @@ class Header extends Component{
         <Nav>
           {/* Link to sign in modal here */}
           <SignInModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
-          <RegisterSigninModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
+          <RegisterModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
         </Nav>
       </Container>
       </Navbar>
