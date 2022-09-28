@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
 import EditForm from "../forms/EditForm";
 
+
 class PlantModal extends Component {
   constructor(props){
     super(props)
@@ -17,23 +18,29 @@ class PlantModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button variant="primary" onClick={this.openModal}>
-            Plant Name
+          <Button className="plantNameColor" onClick={this.openModal}>
+            <h4>Plant Name</h4>
           </Button>
         </div>
-        <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Plant Name</Modal.Title>
+        <Modal className="modal-xl pt-5 pr-5 pl-5" show={this.state.isOpen} onHide={this.closeModal}>
+          <Modal.Header className="border-0" closeButton>
+            <Modal.Title></Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="pt-5 pb-5">
           <Container>
-            <Row>
-            <Col xs={6} md={4}>
-              <Image width={200} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
+            <Row className="justify-content-md-center">
+            <Col xl={4}>
+              <h4>Plant Name</h4>
+              <Image width={300} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
             </Col>
-              <Col xs={12} md={8}>
-               <i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}></i><h5>Water Need</h5> | <i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}></i><h5>Light Need</h5>
-                <h5>Description</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+              <Col xl={6}>
+              <ul className="noListStyle">
+              <li><i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Light Need</span></i></li>
+              <li><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Water Need</span></i></li>
+              </ul>
+              <h5>Description</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+                <h5>Classification</h5>
                 </Col>
                 <EditForm handleChange={this.props.handleChange}/>
             </Row>
