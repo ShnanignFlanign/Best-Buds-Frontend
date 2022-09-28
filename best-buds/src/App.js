@@ -79,7 +79,7 @@ class App extends Component{
     }
     return(
       <div>
-      <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
+      <Header updateUser={this.updateUser}/>
       <Container className="pt-5 pb-5">
         { content }
       </Container>
