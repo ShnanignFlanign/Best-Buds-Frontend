@@ -8,6 +8,14 @@ import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
 
+let baseURL = ''
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3003'
+} else {
+  baseURL = 'your heroku bakend url here'
+}
+
 class App extends Component{
   constructor(){
     super()

@@ -44,7 +44,6 @@ class SignInForm extends Component{
             this.props.updateUser(resJson)
             this.handleAddUser(resJson)
             this.setState = ({
-                username: '',
                 email:'',
                 password:''
             })
