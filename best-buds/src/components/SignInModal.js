@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col} from "react-bootstrap";
-import RegisterForm from '../forms/RegisterForm'
+import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
+import SignInForm from '../forms/SignInForm'
 
-class RegisterSigninModal extends Component {
-  state = {
-    isOpen: false
-  };
+class SignInModal extends Component {
+    constructor(){
+        super()
+        this.state = {
+            isOpen: false
+        };
+    }
+  
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
@@ -15,7 +19,7 @@ class RegisterSigninModal extends Component {
       <>
         <div className="d-flex align-items-center justify-content-center">
           <Button variant="success" onClick={this.openModal}>
-            Register
+            Sign In
           </Button>
         </div>
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
@@ -25,7 +29,7 @@ class RegisterSigninModal extends Component {
           <Container>
             <Row>
             <Col>
-            <RegisterForm/>
+            <SignInForm handleSubmit={this.props.handleSubmit}/>
               </Col>
             </Row>
             </Container>
@@ -36,4 +40,5 @@ class RegisterSigninModal extends Component {
   }
 }
 
-export default RegisterSigninModal;
+export default SignInModal
+

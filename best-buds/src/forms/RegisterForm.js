@@ -25,15 +25,17 @@ class RegisterForm extends Component{
         })
     }
 
-    handleSubmit = (e) =>{
+    handleRegister = (e) =>{
+        const data = JSON.stringify({
+            username:this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        })
+        console.log(data)
         e.preventDefault()
         fetch('http://localhost:3003/users/signup', {
             method:'POST',
-            body: JSON.stringify({
-                username:this.state.name,
-                email: this.state.email,
-                password: this.state.password
-            }),
+            body: data,
             headers:{
                 'Content-Type':'application/json'
             }
@@ -41,6 +43,7 @@ class RegisterForm extends Component{
         .then(res => res.json())
         .then(resJson => {
             console.log('NewUser - resJson' + resJson)
+            this.props.updateUser(resJson)
             this.handleAddUser(resJson)
             this.setState = ({
                 username: '',
@@ -53,7 +56,7 @@ class RegisterForm extends Component{
     render(){
         return(
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleRegister}>
                     <label htmlFor="username">User Name:</label>
                     <input
                         type="text"

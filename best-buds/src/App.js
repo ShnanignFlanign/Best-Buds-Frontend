@@ -18,11 +18,83 @@ class App extends Component{
   }
 
 
+  handleSubmit = (e) =>{
+    e.preventDefault()
+    fetch('http://localhost:3003/users/signin', {
+        method:'POST',
+        body: JSON.stringify({
+            email: this.state.email,
+            password: this.state.password
+        }),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+        let copyUsers = [...this.state.users]
+        copyUsers.push(resJson)
+        this.setState = ({
+            email:'',
+            password:'',
+            users: copyUsers
+        })
+    })
+  }
+
+  updateUser = (user) =>{
+    this.setState = ({
+      users: user
+    })
+  }
+
+  // handleRegister = (e) =>{
+  //   e.preventDefault()
+  //   const data = JSON.stringify({
+  //     username:this.state.name,
+  //     email: this.state.email,
+  //     password: this.state.password
+  //   })
+  //   console.log(data)
+  //   fetch('http://localhost:3003/users/signup', {
+  //       method:'POST',
+  //       body: data,
+  //       headers:{
+  //           'Content-Type':'application/json'
+  //       }
+  //   })
+  //   .then(res => res.json())
+  //   .then(resJson => {
+  //       console.log('NewUser - resJson' + resJson)
+  //       this.handleAddUser(resJson)
+  //       this.setState = ({
+  //           username: '',
+  //           email:'',
+  //           password:''
+  //       })
+  //   })
+  //}
+
+  getPlants = () => {
+    fetch(baseURL + '/plants')
+     .then((res) => {
+      if (res.status === 200) {
+       return res.json();
+      } else {
+       return [];
+      }
+     })
+     .then((data) => {
+      console.log(data);
+      this.setState({ plants: data.plants });
+     });
+   }
+
 
   render (){
     return(
       <div>
-      <Header/>
+      <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
       <Container className="pt-5 pb-5">
         <Row>
         <Col xs={12} md={6}>
