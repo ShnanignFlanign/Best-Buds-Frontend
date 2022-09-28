@@ -84,6 +84,12 @@ Form.Control{
   width: 2000px;
 }
 
+.noListStyle{
+  list-style-type: none;
+  line-height: 50px;
+  padding-left: 0;
+}
+
 i {
   font-style: normal;
 }
