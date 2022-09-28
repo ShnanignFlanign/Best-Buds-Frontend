@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Plant from './components/Plant'
-import AddPlantModal from './components/AddPlantModal'
-import {Container, Row, Col, Button} from "react-bootstrap"
+import Welcome from './components/Welcome'
+import UserPortal from './components/userPortal'
+
+import {Container} from "react-bootstrap"
 import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
@@ -22,6 +23,7 @@ class App extends Component{
     this.state = {
       plants:[],
       users: [],
+      isLoggedIn: false
     }
   }
 
@@ -100,27 +102,18 @@ class App extends Component{
    }
 
   render (){
+    const isLoggedIn = this.state.isLoggedIn;
+    let content;
+    if (!isLoggedIn){
+      content = <Welcome></Welcome>
+    } else {
+      content = <UserPortal users={this.state.users} ></UserPortal>
+    }
     return(
       <div>
       <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
       <Container className="pt-5 pb-5">
-        <Row>
-        <Col xs={12} md={6}>
-        <h2>Your Buds</h2>
-        </Col>
-        <Col xs={12} md={6} className="d-flex justify-content-end">
-        <Button variant="outline-success">
-          <AddPlantModal/>
-        </Button>
-        </Col>
-        </Row>
-        <Row className="pt-5">
-        {/* shouldnt we be mapping?? */}
-        {/* should we be using seeded data and a separate modal */}
-        <Plant/>
-        <Plant/>
-        <Plant/>
-        </Row>
+        { content }
       </Container>
        <Footer/>
       </div>

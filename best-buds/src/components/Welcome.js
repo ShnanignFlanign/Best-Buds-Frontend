@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Plant from './Plant'
-import {Container, Button, Row, Col, Image} from "react-bootstrap"
+import AddPlantModal from './AddPlantModal'
+import {Row, Col, Image} from "react-bootstrap"
 
 
 class Welcome extends Component{
@@ -16,14 +17,25 @@ class Welcome extends Component{
           </Col>
         </Row>
         <Row>
+       
+        
+        <Row>
         <Col xs={12} md={6}>
         <h2>Your Buds</h2>
         </Col>
         <Col xs={12} md={6} className="d-flex justify-content-end">
-        <Button variant="outline-success">
-          Add a Plant
-        </Button>
+        {/* <Button variant="outline-success"> */}
+          <AddPlantModal/>
+        {/* </Button> */}
         </Col>
+        </Row>
+        <Row className="pt-5">
+        {/* shouldnt we be mapping?? */}
+        {/* should we be using seeded data and a separate modal */}
+        <Plant/>
+        <Plant/>
+        <Plant/>
+        </Row>
         <Plant></Plant>
         <Plant></Plant>
         </Row>
