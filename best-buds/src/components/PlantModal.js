@@ -17,19 +17,23 @@ class PlantModal extends Component {
             Plant Name
           </Button>
         </div>
-        <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Plant Name</Modal.Title>
+        <Modal className="modal-xl pt-5 pr-5 pl-5" show={this.state.isOpen} onHide={this.closeModal}>
+          <Modal.Header className="border-0" closeButton>
+            <Modal.Title></Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <Container>
-            <Row>
-            <Col xs={6} md={4}>
+            <Row className="justify-content-md-center">
+            <Col xl={4}>
+              <h5>Plant Name</h5>
               <Image width={200} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
             </Col>
-              <Col xs={12} md={8}>
-               <i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}></i><h5>Water Need</h5> | <i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}></i><h5>Light Need</h5>
-                <h5>Description</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+              <Col xl={6}>
+           <i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Light Need</span></i>
+             <i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Water Need</span></i>
+                <h5>Description</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+                <h5>Classification</h5>
                 </Col>
             </Row>
             </Container>
