@@ -28,6 +28,11 @@ class App extends Component{
     })
   }
 
+  handleChange = (e) =>{
+    this.setState({
+        [e.target.id]: e.target.value
+    })
+  }
 
   getPlants = () => {
     fetch(baseURL + '/plants')
@@ -50,11 +55,11 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome></Welcome>
     } else {
-      content = <UserPortal users={this.state.users} ></UserPortal>
+      content = <UserPortal users={this.state.users} handleChange={this.handleChange}></UserPortal>
     }
     return(
       <div>
-      <Header updateUser={this.updateUser}/>
+      <Header updateUser={this.updateUser} handleChange={this.handleChange} />
       <Container className="pt-5 pb-5">
         { content }
       </Container>

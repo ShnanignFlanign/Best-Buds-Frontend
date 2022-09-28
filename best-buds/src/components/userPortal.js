@@ -14,6 +14,12 @@ class UserPortal extends Component{
     }
   }
 
+  handleChange = (e) =>{
+    this.setState({
+        [e.target.id]: e.target.value
+    })
+}
+
   handleEdit = (plant) =>{
     //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
     fetch('http://localhost:3003/plants' + plant._id, {
@@ -44,7 +50,7 @@ class UserPortal extends Component{
     render (){
       return(
         <div>
-          
+          {/* pass down handle change to necessary modals */}
           <Plant></Plant>
           <Plant></Plant>
 
