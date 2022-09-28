@@ -1,18 +1,17 @@
 import React, { Component} from 'react'
 import {Col, Card, Nav} from "react-bootstrap";
 import PlantModal from './PlantModal'
+import EditModal from './EditModal'
 
 class Plant extends Component{
   constructor(props){
-    super(props) 
+    super(props)
     this.state = {
       // we need to set the plants array in state here or pass it down as props from app.js
       plants: this.props.plants,
       readMore: false
     }
   }
-
-  //read more method to open up all the info on the plant 
 
   //delete method 
   handleDeletePlant = (id) =>{
@@ -29,9 +28,10 @@ class Plant extends Component{
     })
   }
   
+
   //edit method
 
-  //do we need the above functionality inside of app?? 
+  //do we need the above functionality inside of app??
 
  render(){
    return(
@@ -40,7 +40,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <Nav.Link href="#"><i class="bi bi-pencil" style={{ fontSize: 30, color: '#333333'}}></i> </Nav.Link>
+            <EditModal/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
