@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
+import { Modal, Container, Row, Col, Image, Button} from "react-bootstrap";
 
 class PlantModal extends Component {
   state = {
@@ -13,8 +13,8 @@ class PlantModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button variant="primary" onClick={this.openModal}>
-            Plant Name
+          <Button className="plantNameColor" onClick={this.openModal}>
+            <h4>Plant Name</h4>
           </Button>
         </div>
         <Modal className="modal-xl pt-5 pr-5 pl-5" show={this.state.isOpen} onHide={this.closeModal}>

@@ -84,6 +84,19 @@ Form.Control{
   width: 2000px;
 }
 
+.plantNameColor{
+  background-color:transparent;
+  border: none;
+  color: #2b472b;
+}
+
+.plantNameColor:hover{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
+}
+
 .noListStyle{
   list-style-type: none;
   line-height: 50px;
