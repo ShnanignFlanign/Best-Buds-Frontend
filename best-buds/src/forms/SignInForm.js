@@ -55,7 +55,7 @@ class SignInForm extends Component{
                         id="email"
                         name="email"
                         value={this.state.email}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="password">Password:</label>
@@ -64,7 +64,7 @@ class SignInForm extends Component{
                         htmlFor="password"
                         id="password"
                         value={this.state.password}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <input type="submit" value="Sign In"/>
                 </form>

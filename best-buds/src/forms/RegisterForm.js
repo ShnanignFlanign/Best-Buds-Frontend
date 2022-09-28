@@ -64,7 +64,7 @@ class RegisterForm extends Component{
                         id="username"
                         name="name"
                         value={this.state.username}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="email">Email:</label>
@@ -74,7 +74,7 @@ class RegisterForm extends Component{
                         id="email"
                         name="email"
                         value={this.state.email}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="password">Password:</label>
@@ -83,7 +83,7 @@ class RegisterForm extends Component{
                         htmlFor="password"
                         id="password"
                         value={this.state.password}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <input type="submit" value="Create Account"/>
                 </form>

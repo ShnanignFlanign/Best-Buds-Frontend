@@ -29,7 +29,7 @@ class SignInModal extends Component {
           <Container>
             <Row>
             <Col>
-            <SignInForm updateUser={this.props.updateUser}/>
+            <SignInForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
               </Col>
             </Row>
             </Container>

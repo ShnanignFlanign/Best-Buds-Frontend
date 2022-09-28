@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import {Nav, Navbar, Container} from "react-bootstrap";
-import RegisterSigninModal from './RegisterModal'
+import RegisterModal from './RegisterModal'
 import SignInModal from './SignInModal'
 
 class Header extends Component{
