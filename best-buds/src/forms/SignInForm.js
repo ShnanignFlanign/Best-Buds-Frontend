@@ -10,12 +10,6 @@ class SignInForm extends Component{
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     //this needs to be changed to log the user in
     handleSignin = (e) =>{
         const data = JSON.stringify({
@@ -54,8 +48,7 @@ class SignInForm extends Component{
                         htmlFor="email"
                         id="email"
                         name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="password">Password:</label>
@@ -63,8 +56,7 @@ class SignInForm extends Component{
                         type="password"
                         htmlFor="password"
                         id="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <input type="submit" value="Sign In"/>
                 </form>
