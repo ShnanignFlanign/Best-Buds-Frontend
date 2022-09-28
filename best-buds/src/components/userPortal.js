@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import AddPlantModal from './AddPlantModal'
+import EditModal from './EditModal'
 import Plant from './Plant'
 
 class UserPortal extends Component{
@@ -51,10 +53,8 @@ class UserPortal extends Component{
       return(
         <div>
           {/* pass down handle change to necessary modals */}
-          <Plant></Plant>
-          <Plant></Plant>
-
-  
+          <Plant handleChange={this.props.handleChange} />
+          <AddPlantModal handleChange={this.props.handleChange} />
         </div>
       )
     }

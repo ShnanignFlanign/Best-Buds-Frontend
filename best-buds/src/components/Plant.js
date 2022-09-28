@@ -2,6 +2,7 @@ import React, { Component} from 'react'
 import {Col, Card, Nav} from "react-bootstrap";
 import PlantModal from './PlantModal'
 import EditModal from './EditModal'
+import UserPortal from './userPortal'
 
 class Plant extends Component{
   constructor(props){
@@ -40,7 +41,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <EditModal/>
+            <EditModal handleChange={this.props.handleChange}/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
@@ -50,7 +51,7 @@ class Plant extends Component{
       {/* Map though the plants array here */}
       <Card.Img variant="top"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Plant_No_Image.svg/2048px-Plant_No_Image.svg.png"/>
       <Card.Body className="text-center">
-        <PlantModal/>
+        <PlantModal handleChange={this.props.handleChange}/>
       </Card.Body>
     </Card>
      </Col>
