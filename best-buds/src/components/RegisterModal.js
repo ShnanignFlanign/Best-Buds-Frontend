@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Modal, Button, Container, Row, Col} from "react-bootstrap";
 import RegisterForm from '../forms/RegisterForm'
 
-class RegisterSigninModal extends Component {
+class RegisterModal extends Component {
   constructor(){
     super()
     this.state = {
@@ -27,8 +27,8 @@ class RegisterSigninModal extends Component {
           <Modal.Body>
           <Container>
             <Row>
-            <Col>
-            <RegisterForm updateUser={this.props.updateUser}/>
+              <Col>
+                <RegisterForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
               </Col>
             </Row>
             </Container>
@@ -39,4 +39,4 @@ class RegisterSigninModal extends Component {
   }
 }
 
-export default RegisterSigninModal;
+export default RegisterModal;

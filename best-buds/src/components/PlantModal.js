@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { Modal, Container, Row, Col, Image, Button} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
+import EditForm from "../forms/EditForm";
+
 
 class PlantModal extends Component {
-  state = {
-    isOpen: false
-  };
-
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+  }
+  
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
 
@@ -37,6 +42,7 @@ class PlantModal extends Component {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
                 <h5>Classification</h5>
                 </Col>
+                <EditForm handleChange={this.props.handleChange}/>
             </Row>
             </Container>
           </Modal.Body>

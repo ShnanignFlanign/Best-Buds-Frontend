@@ -1,15 +1,16 @@
 import React, { Component} from 'react'
 import {Nav, Navbar, Container} from "react-bootstrap";
-import RegisterSigninModal from './RegisterModal'
+import RegisterModal from './RegisterModal'
 import SignInModal from './SignInModal'
 
 class Header extends Component{
   constructor(props){
-    super()
+    super(props)
     this.state = {
 
     }
   }
+  
   render(){
     return(
       <div className="custom-hdr">
@@ -19,8 +20,8 @@ class Header extends Component{
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
           {/* Link to sign in modal here */}
-          <SignInModal handleSubmit={this.props.handleSubmit}/>
-          <RegisterSigninModal updateUser={this.props.updateUser}/>
+          <SignInModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
+          <RegisterModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
         </Nav>
       </Container>
       </Navbar>

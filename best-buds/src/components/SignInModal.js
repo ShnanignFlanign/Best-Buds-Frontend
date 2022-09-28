@@ -3,8 +3,8 @@ import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
 import SignInForm from '../forms/SignInForm'
 
 class SignInModal extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             isOpen: false
         };
@@ -29,7 +29,8 @@ class SignInModal extends Component {
           <Container>
             <Row>
             <Col>
-            <SignInForm handleSubmit={this.props.handleSubmit}/>
+            {/* <input type="text" onChange={this.props.handleChange}/> */}
+            <SignInForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
               </Col>
             </Row>
             </Container>

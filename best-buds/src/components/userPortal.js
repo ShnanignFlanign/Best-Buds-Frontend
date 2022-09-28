@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import AddPlantModal from './AddPlantModal'
+import EditModal from './EditModal'
 import Plant from './Plant'
 
 class UserPortal extends Component{
@@ -14,7 +16,14 @@ class UserPortal extends Component{
     }
   }
 
+  handleChange = (e) =>{
+    this.setState({
+        [e.target.id]: e.target.value
+    })
+}
+
   handleEdit = (plant) =>{
+    //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
     fetch('http://localhost:3003/plants' + plant._id, {
         method:'PUT',
         body: JSON.stringify({
@@ -43,11 +52,9 @@ class UserPortal extends Component{
     render (){
       return(
         <div>
-          
-          <Plant></Plant>
-          <Plant></Plant>
-
-  
+          {/* pass down handle change to necessary modals */}
+          <Plant handleChange={this.props.handleChange} />
+          <AddPlantModal handleChange={this.props.handleChange} />
         </div>
       )
     }

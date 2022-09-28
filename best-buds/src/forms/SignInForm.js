@@ -10,33 +10,29 @@ class SignInForm extends Component{
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     //this needs to be changed to log the user in
-    handleSubmit = (e) =>{
+    handleSignin = (e) =>{
+        const data = JSON.stringify({
+            email: this.state.email,
+            password: this.state.password
+        })
+        console.log(data)
         e.preventDefault()
         fetch('http://localhost:3003/users/signin', {
             method:'POST',
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
-            }),
+            body: data,
             headers:{
                 'Content-Type':'application/json'
             }
         })
         .then(res => res.json())
         .then(resJson => {
-            let copyUsers = [...this.state.users]
-            copyUsers.push(resJson)
+            console.log('NewUser - resJson' + resJson)
+            this.props.updateUser(resJson)
+            this.handleAddUser(resJson)
             this.setState = ({
                 email:'',
-                password:'',
-                users: copyUsers
+                password:''
             })
         })
     }
@@ -44,7 +40,7 @@ class SignInForm extends Component{
     render(){
         return(
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSignin}>
 
                     <label htmlFor="email">Email:</label>
                     <input
@@ -52,8 +48,7 @@ class SignInForm extends Component{
                         htmlFor="email"
                         id="email"
                         name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="password">Password:</label>
@@ -61,10 +56,9 @@ class SignInForm extends Component{
                         type="password"
                         htmlFor="password"
                         id="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
-                    <input type="submit" value="Create Account"/>
+                    <input type="submit" value="Sign In"/>
                 </form>
             </>
         )

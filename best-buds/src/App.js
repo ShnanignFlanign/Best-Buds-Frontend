@@ -1,79 +1,39 @@
 import React, {Component} from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Plant from './components/Plant'
-import AddPlantModal from './components/AddPlantModal'
-import {Container, Row, Col, Button} from "react-bootstrap"
+import Welcome from './components/Welcome'
+import UserPortal from './components/userPortal'
+
+import {Container} from "react-bootstrap"
 import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
 
+let baseURL = process.env.REACT_APP_BASE_URL
 class App extends Component{
   constructor(){
     super()
+    this.updateUser = this.updateUser.bind(this)
     this.state = {
       plants:[],
       users: [],
+      isLoggedIn: true
     }
-  }
-
-
-  handleSubmit = (e) =>{
-    e.preventDefault()
-    fetch('http://localhost:3003/users/signin', {
-        method:'POST',
-        body: JSON.stringify({
-            email: this.state.email,
-            password: this.state.password
-        }),
-        headers:{
-            'Content-Type':'application/json'
-        }
-    })
-    .then(res => res.json())
-    .then(resJson => {
-        let copyUsers = [...this.state.users]
-        copyUsers.push(resJson)
-        this.setState = ({
-            email:'',
-            password:'',
-            users: copyUsers
-        })
-    })
   }
 
   updateUser = (user) =>{
     this.setState = ({
-      users: user
+      users: user,
+      isLoggedIn: true
     })
   }
 
-  // handleRegister = (e) =>{
-  //   e.preventDefault()
-  //   const data = JSON.stringify({
-  //     username:this.state.name,
-  //     email: this.state.email,
-  //     password: this.state.password
-  //   })
-  //   console.log(data)
-  //   fetch('http://localhost:3003/users/signup', {
-  //       method:'POST',
-  //       body: data,
-  //       headers:{
-  //           'Content-Type':'application/json'
-  //       }
-  //   })
-  //   .then(res => res.json())
-  //   .then(resJson => {
-  //       console.log('NewUser - resJson' + resJson)
-  //       this.handleAddUser(resJson)
-  //       this.setState = ({
-  //           username: '',
-  //           email:'',
-  //           password:''
-  //       })
-  //   })
-  //}
+  handleChange = (e) =>{
+    console.log(e.target.value)
+    this.setState({
+        [e.target.id]: e.target.value
+    })
+  }
 
   getPlants = () => {
     fetch(baseURL + '/plants')
@@ -91,25 +51,18 @@ class App extends Component{
    }
 
   render (){
+    const isLoggedIn = this.state.isLoggedIn;
+    let content;
+    if (!isLoggedIn){
+      content = <Welcome></Welcome>
+    } else {
+      content = <UserPortal users={this.state.users} handleChange={this.handleChange}></UserPortal>
+    }
     return(
       <div>
-      <Header handleSubmit={this.handleSubmit} updateUser={this.updateUser}/>
+      <Header updateUser={this.updateUser} handleChange={this.handleChange} />
       <Container className="pt-5 pb-5">
-        <Row>
-        <Col xs={12} md={6}>
-        <h2>Your Buds</h2>
-        </Col>
-        <Col xs={12} md={6} className="d-flex justify-content-end">
-          <AddPlantModal/>
-        </Col>
-        </Row>
-        <Row className="pt-5">
-        {/* shouldnt we be mapping?? */}
-        {/* should we be using seeded data and a separate modal */}
-        <Plant/>
-        <Plant/>
-        <Plant/>
-        </Row>
+        { content }
       </Container>
        <Footer/>
       </div>

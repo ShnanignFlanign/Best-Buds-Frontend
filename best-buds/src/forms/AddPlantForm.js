@@ -16,12 +16,6 @@ class AddPlantForm extends Component{
         }
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     handleAddPlant = (plant) =>{
         const copyPlants = [...this.state.plants]
         copyPlants.push(plant)
@@ -77,8 +71,7 @@ class AddPlantForm extends Component{
                     htmlFor="name"
                     id="name"
                     name="name"
-                    value={this.state.name}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 />
                 </Form.Group>
 
@@ -89,8 +82,7 @@ class AddPlantForm extends Component{
                     htmlFor="img"
                     id="img"
                     name="img"
-                    value={this.state.img}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 />
                 </Form.Group>
 
@@ -101,8 +93,7 @@ class AddPlantForm extends Component{
                     htmlFor="lightNeed"
                     id="lightNeed"
                     name="lightNeed"
-                    value={this.state.lightNeed}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 />
                 </Form.Group>
 
@@ -113,8 +104,7 @@ class AddPlantForm extends Component{
                     htmlFor="waterNeed"
                     id="waterNeed"
                     name="waterNeed"
-                    value={this.state.waterNeed}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 />
                 </Form.Group>
 
@@ -124,8 +114,7 @@ class AddPlantForm extends Component{
                     htmlFor="description"
                     id="description"
                     name="description"
-                    value={this.state.description}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 />
                 </Form.Group>
 
@@ -135,12 +124,13 @@ class AddPlantForm extends Component{
                     htmlFor="classification"
                     id="classification"
                     name="classification"
-                    value={this.state.classification}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                 >
-                <option>1</option>
-                  <option>2</option>
-                    <option>3</option>
+                <option>Algae</option>
+                  <option>Moss</option>
+                    <option>Fern</option>
+                        <option>Coniferous</option>
+                            <option>Flowering</option>
                 </Form.Select>
                 </Form.Group>
                 <div className="d-flex align-items-center justify-content-center">
