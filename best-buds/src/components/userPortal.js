@@ -15,6 +15,7 @@ class UserPortal extends Component{
   }
 
   handleEdit = (plant) =>{
+    //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
     fetch('http://localhost:3003/plants' + plant._id, {
         method:'PUT',
         body: JSON.stringify({

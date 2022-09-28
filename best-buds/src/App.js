@@ -18,29 +18,29 @@ class App extends Component{
   }
 
 
-  handleSubmit = (e) =>{
-    e.preventDefault()
-    fetch('http://localhost:3003/users/signin', {
-        method:'POST',
-        body: JSON.stringify({
-            email: this.state.email,
-            password: this.state.password
-        }),
-        headers:{
-            'Content-Type':'application/json'
-        }
-    })
-    .then(res => res.json())
-    .then(resJson => {
-        let copyUsers = [...this.state.users]
-        copyUsers.push(resJson)
-        this.setState = ({
-            email:'',
-            password:'',
-            users: copyUsers
-        })
-    })
-  }
+  // handleSubmit = (e) =>{
+  //   e.preventDefault()
+  //   fetch('http://localhost:3003/users/signin', {
+  //       method:'POST',
+  //       body: JSON.stringify({
+  //           email: this.state.email,
+  //           password: this.state.password
+  //       }),
+  //       headers:{
+  //           'Content-Type':'application/json'
+  //       }
+  //   })
+  //   .then(res => res.json())
+  //   .then(resJson => {
+  //       let copyUsers = [...this.state.users]
+  //       copyUsers.push(resJson)
+  //       this.setState = ({
+  //           email:'',
+  //           password:'',
+  //           users: copyUsers
+  //       })
+  //   })
+  // }
 
   updateUser = (user) =>{
     this.setState = ({
