@@ -3,9 +3,12 @@ import { Modal, Container, Row, Col, Nav} from "react-bootstrap";
 import EditForm from '../forms/EditForm'
 
 class EditModal extends Component {
-  state = {
-    isOpen: false
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+  }
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
@@ -23,7 +26,7 @@ class EditModal extends Component {
           <Container>
             <Row>
             <Col>
-            <EditForm/>
+            <EditForm handleChange={this.props.handleChange}/>
               </Col>
             </Row>
             </Container>

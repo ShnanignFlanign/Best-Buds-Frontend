@@ -17,7 +17,7 @@ class App extends Component{
     this.state = {
       plants:[],
       users: [],
-      isLoggedIn: false
+      isLoggedIn: true
     }
   }
 
@@ -29,6 +29,7 @@ class App extends Component{
   }
 
   handleChange = (e) =>{
+    console.log(e.target.value)
     this.setState({
         [e.target.id]: e.target.value
     })

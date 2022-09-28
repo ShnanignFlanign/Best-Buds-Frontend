@@ -19,12 +19,6 @@ class RegisterForm extends Component{
         })
     }
 
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
     handleRegister = (e) =>{
         const data = JSON.stringify({
             username:this.state.username,
@@ -63,8 +57,7 @@ class RegisterForm extends Component{
                         htmlFor="username"
                         id="username"
                         name="name"
-                        value={this.state.username}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="email">Email:</label>
@@ -73,8 +66,7 @@ class RegisterForm extends Component{
                         htmlFor="email"
                         id="email"
                         name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
 
                     <label htmlFor="password">Password:</label>
@@ -82,8 +74,7 @@ class RegisterForm extends Component{
                         type="password"
                         htmlFor="password"
                         id="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <input type="submit" value="Create Account"/>
                 </form>

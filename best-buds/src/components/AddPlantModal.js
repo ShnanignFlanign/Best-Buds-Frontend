@@ -3,9 +3,13 @@ import { Modal, Button, Container, Row, Col} from "react-bootstrap";
 import AddPlantForm from '../forms/AddPlantForm'
 
 class AddPlantModal extends Component {
-  state = {
-    isOpen: false
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+  }
+  
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
@@ -25,7 +29,7 @@ class AddPlantModal extends Component {
           <Container>
             <Row>
             <Col>
-            <AddPlantForm/>
+            <AddPlantForm handleChange={this.props.handleChange}/>
               </Col>
             </Row>
             </Container>

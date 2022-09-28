@@ -29,6 +29,7 @@ class SignInModal extends Component {
           <Container>
             <Row>
             <Col>
+            {/* <input type="text" onChange={this.props.handleChange}/> */}
             <SignInForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
               </Col>
             </Row>
