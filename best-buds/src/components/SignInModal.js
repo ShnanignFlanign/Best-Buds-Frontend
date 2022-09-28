@@ -3,8 +3,8 @@ import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
 import SignInForm from '../forms/SignInForm'
 
 class SignInModal extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             isOpen: false
         };

@@ -5,11 +5,12 @@ import SignInModal from './SignInModal'
 
 class Header extends Component{
   constructor(props){
-    super()
+    super(props)
     this.state = {
 
     }
   }
+  
   render(){
     return(
       <div className="custom-hdr">

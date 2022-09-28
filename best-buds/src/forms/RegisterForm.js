@@ -19,6 +19,12 @@ class RegisterForm extends Component{
         })
     }
 
+    handleChange = (e) =>{
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
     handleRegister = (e) =>{
         const data = JSON.stringify({
             username:this.state.username,
