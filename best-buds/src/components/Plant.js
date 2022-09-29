@@ -9,7 +9,12 @@ class Plant extends Component{
     super(props)
     this.state = {
       // we need to set the plants array in state here or pass it down as props from app.js
-      plant: this.props.plant,
+      name: this.props.name,
+      img: this.props.img,
+      lightNeed: this.props.lightNeed,
+      waterNeed: this.props.waterNeed,
+      classification: this.props.classification,
+      description: this.props.description,
       readMore: false
     }
   }
@@ -49,9 +54,9 @@ class Plant extends Component{
           </Nav.Item>
       </Nav>
       {/* Map though the plants array here */}
-      <Card.Img variant="top"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Plant_No_Image.svg/2048px-Plant_No_Image.svg.png"/>
+      <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
-        <PlantModal handleChange={this.props.handleChange}/>
+        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification}/>
       </Card.Body>
     </Card>
      </Col>
