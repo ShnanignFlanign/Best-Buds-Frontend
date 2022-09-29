@@ -6,6 +6,12 @@ class EditModal extends Component {
   constructor(props){
     super(props)
     this.state = {
+      name: this.props.name,
+      img: this.props.img,
+      lightNeed: this.props.lightNeed,
+      waterNeed: this.props.waterNeed,
+      classification: this.props.classification,
+      description: this.props.description,
       isOpen: false
     }
   }
@@ -26,7 +32,7 @@ class EditModal extends Component {
           <Container>
             <Row>
             <Col>
-            <EditForm handleChange={this.props.handleChange}/>
+            <EditForm handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification}/>
               </Col>
             </Row>
             </Container>
