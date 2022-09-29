@@ -56,7 +56,7 @@ class App extends Component{
    handleAddUser = (user) =>{
     const copyUsers = [...this.state.users]
     copyUsers.push(user)
-    this.setState({
+    this.setState = ({
         users:copyUsers
     })
   }   
@@ -67,7 +67,7 @@ class App extends Component{
     })
     console.log(data)
     e.preventDefault()
-    fetch('http://localhost:3003/users/signin', {
+    fetch(baseURL + '/users/signin', {
         method:'POST',
         body: data,
         headers:{
@@ -76,7 +76,7 @@ class App extends Component{
     })
     .then(res => res.json())
     .then(resJson => {
-        console.log('resJson:' + resJson)
+        console.log(resJson)
         this.updateUser(resJson)
         this.handleAddUser(resJson)
         this.setState = ({
@@ -84,7 +84,22 @@ class App extends Component{
             password:''
         })
     })
-  }
+    console.log(this.state.email)
+    // fetch(baseURL + '/users/' + this.state.email)
+    // .then((res) => {
+    //   if (res.status === 200) {
+    //    return res.json();
+    //   } else {
+    //    return [];
+    //   }
+    //  })
+    //  .then((data) => {
+    //   console.log(data);
+    //   this.setState({ user: data.username });
+    //  });
+
+  } //END handle signin
+  
   componentDidMount(){
     this.getPlants()
   }
@@ -102,7 +117,8 @@ class App extends Component{
       <div>
       <Header updateUser={this.updateUser} handleChange={this.handleChange} />
       <Container className="pt-5 pb-5">
-        {/* SIGN IN FORM */}
+
+        {/* SIGNIN FORM */}
         <form onSubmit={this.handleSignin}>
           <label htmlFor="email">Email:</label>
           <input
@@ -122,6 +138,8 @@ class App extends Component{
           />
           <input type="submit" value="Sign In"/>
         </form>
+        {/* END SIGNIN FORM */}
+
         { content }
       </Container>
        <Footer/>
