@@ -3,8 +3,35 @@ import Plant from './Plant'
 import AddPlantModal from './AddPlantModal'
 import {Row, Col, Image} from "react-bootstrap"
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
 
 class Welcome extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      plants:[]
+    }
+  }
+
+  getPlants = () => {
+    fetch(baseURL + '/plants')
+     .then((res) => {
+      if (res.status === 200) {
+       return res.json();
+      } else {
+       return [];
+      }
+     })
+     .then((data) => {
+      console.log(data);
+      this.setState({ plants: data.plants });
+     });
+  }
+
+  componentDidMount(){
+    this.getPlants()
+  }
+
   render (){
     return(
       <div>
@@ -32,8 +59,13 @@ class Welcome extends Component{
         <Row className="pt-5">
         {/* shouldnt we be mapping?? */}
         {/* should we be using seeded data and a separate modal */}
-          <Plant></Plant>
-          <Plant></Plant>
+        {this.state.plants.map((plant) =>{
+            console.log(plant.name, plant.lightNeed)
+            if(plant.username == 'default'){
+              return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification}/>
+            }
+          })
+        }
         </Row>
         
         </Row>

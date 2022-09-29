@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
-import EditForm from "../forms/EditForm";
-
 
 class PlantModal extends Component {
   constructor(props){
     super(props)
     this.state = {
-      isOpen: false
+      isOpen: false,
+      name: this.props.name,
+      img: this.props.img,
+      lightNeed: this.props.lightNeed,
+      waterNeed: this.props.waterNeed,
+      classification: this.props.classification,
+      description: this.props.description,
     }
   }
   
@@ -19,7 +23,7 @@ class PlantModal extends Component {
       <>
         <div className="d-flex align-items-center justify-content-center">
           <Button className="plantNameColor" onClick={this.openModal}>
-            <h4>Plant Name</h4>
+            <h4>{this.state.name}</h4>
           </Button>
         </div>
         <Modal className="modal-xl pt-5 pr-5 pl-5" show={this.state.isOpen} onHide={this.closeModal}>
@@ -30,19 +34,18 @@ class PlantModal extends Component {
           <Container>
             <Row className="justify-content-md-center">
             <Col xl={4}>
-              <h4>Plant Name</h4>
-              <Image width={300} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
+              <h4>{this.state.name}</h4>
+              <Image width={300} src={this.state.img} roundedCirle />
             </Col>
               <Col xl={6}>
               <ul className="noListStyle">
-              <li><i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Light Need</span></i></li>
-              <li><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Water Need</span></i></li>
+              <li><i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Light Need: {this.state.lightNeed}</span></i></li>
+              <li><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Water Need: {this.state.waterNeed}</span></i></li>
               </ul>
               <h5>Description</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
-                <h5>Classification</h5>
+                <p>{this.state.description}</p>
+                <h5>Classification: {this.state.classification}</h5>
                 </Col>
-                <EditForm handleChange={this.props.handleChange}/>
             </Row>
             </Container>
           </Modal.Body>

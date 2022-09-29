@@ -6,10 +6,12 @@ import UserPortal from './components/userPortal'
 
 import {Container} from "react-bootstrap"
 import './App.css'
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
 //base plants URL '/plants'
 //base users URL '/users'
 
-let baseURL = 'http://localhost:3003'
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class App extends Component{
   constructor(){
     super()
@@ -49,6 +51,7 @@ class App extends Component{
       this.setState({ plants: data.plants });
      });
    }
+
          // TESTING METHODS
    handleAddUser = (user) =>{
     const copyUsers = [...this.state.users]
@@ -91,7 +94,7 @@ class App extends Component{
     const isLoggedIn = this.state.isLoggedIn;
     let content;
     if (!isLoggedIn){
-      content = <Welcome/>
+      content = <Welcome plants={this.state.plants}/>
     } else {
       content = <UserPortal users={this.state.users} handleChange={this.handleChange}/>
     }
