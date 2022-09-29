@@ -96,7 +96,7 @@ class App extends Component{
     //   this.setState({ user: data.username });
     //  });
 
-  }
+  } //END handle signin
   
   componentDidMount(){
     this.getPlants()
