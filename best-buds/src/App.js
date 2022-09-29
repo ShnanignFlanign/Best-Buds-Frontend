@@ -74,7 +74,7 @@ class App extends Component{
     })
     .then(res => res.json())
     .then(resJson => {
-        console.log('resJson:' + resJson)
+        console.log(resJson)
         this.updateUser(resJson)
         this.handleAddUser(resJson)
         this.setState = ({
@@ -82,19 +82,19 @@ class App extends Component{
             password:''
         })
     })
-    // console.log(this.state.email)
-    // fetch(baseURL + '/users/' + this.state.email)
-    // .then((res) => {
-    //   if (res.status === 200) {
-    //    return res.json();
-    //   } else {
-    //    return [];
-    //   }
-    //  })
-    //  .then((data) => {
-    //   console.log("Data:" + data);
-    //   this.setState({ user: data.username });
-    //  });
+    console.log(this.state.email)
+    fetch(baseURL + '/users/' + this.state.email)
+    .then((res) => {
+      if (res.status === 200) {
+       return res.json();
+      } else {
+       return [];
+      }
+     })
+     .then((data) => {
+      console.log(data);
+      this.setState({ user: data.username });
+     });
 
   } //END handle signin
   
