@@ -9,7 +9,7 @@ import './App.css'
 //base plants URL '/plants'
 //base users URL '/users'
 
-let baseURL = process.env.REACT_APP_BASE_URL
+let baseURL = 'http://localhost:3003'
 class App extends Component{
   constructor(){
     super()
@@ -17,7 +17,7 @@ class App extends Component{
     this.state = {
       plants:[],
       users: [],
-      isLoggedIn: true
+      isLoggedIn: false
     }
   }
 
@@ -49,19 +49,76 @@ class App extends Component{
       this.setState({ plants: data.plants });
      });
    }
+         // TESTING METHODS
+   handleAddUser = (user) =>{
+    const copyUsers = [...this.state.users]
+    copyUsers.push(user)
+    this.setState({
+        users:copyUsers
+    })
+  }   
+  handleSignin = (e) =>{
+    const data = JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+    })
+    console.log(data)
+    e.preventDefault()
+    fetch('http://localhost:3003/users/signin', {
+        method:'POST',
+        body: data,
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+        console.log('resJson:' + resJson)
+        this.updateUser(resJson)
+        this.handleAddUser(resJson)
+        this.setState = ({
+            email:'',
+            password:''
+        })
+    })
+  }
+  componentDidMount(){
+    this.getPlants()
+  }
+  //END TESTING METHODS
 
   render (){
     const isLoggedIn = this.state.isLoggedIn;
     let content;
     if (!isLoggedIn){
-      content = <Welcome></Welcome>
+      content = <Welcome/>
     } else {
-      content = <UserPortal users={this.state.users} handleChange={this.handleChange}></UserPortal>
+      content = <UserPortal users={this.state.users} handleChange={this.handleChange}/>
     }
     return(
       <div>
       <Header updateUser={this.updateUser} handleChange={this.handleChange} />
       <Container className="pt-5 pb-5">
+        {/* SIGN IN FORM */}
+        <form onSubmit={this.handleSignin}>
+          <label htmlFor="email">Email:</label>
+          <input
+              type="email"
+              htmlFor="email"
+              id="email"
+              name="email"
+              onChange={this.handleChange}
+          />
+
+          <label htmlFor="password">Password:</label>
+          <input
+              type="password"
+              htmlFor="password"
+              id="password"
+              onChange={this.handleChange}
+          />
+          <input type="submit" value="Sign In"/>
+        </form>
         { content }
       </Container>
        <Footer/>
