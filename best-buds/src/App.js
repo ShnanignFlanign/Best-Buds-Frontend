@@ -82,19 +82,19 @@ class App extends Component{
             password:''
         })
     })
-    console.log(this.state.email)
-    fetch(baseURL + '/users/' + this.state.email)
-    .then((res) => {
-      if (res.status === 200) {
-       return res.json();
-      } else {
-       return [];
-      }
-     })
-     .then((data) => {
-      console.log("Data:" + data);
-      this.setState({ user: data.username });
-     });
+    // console.log(this.state.email)
+    // fetch(baseURL + '/users/' + this.state.email)
+    // .then((res) => {
+    //   if (res.status === 200) {
+    //    return res.json();
+    //   } else {
+    //    return [];
+    //   }
+    //  })
+    //  .then((data) => {
+    //   console.log("Data:" + data);
+    //   this.setState({ user: data.username });
+    //  });
 
   }
   componentDidMount(){
