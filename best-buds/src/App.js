@@ -19,14 +19,16 @@ class App extends Component{
     this.state = {
       plants:[],
       users: [],
+      username: '',
       isLoggedIn: false
     }
   }
 
   updateUser = (user) =>{
-    this.setState = ({
+    this.setState({
       users: user,
-      isLoggedIn: true
+      isLoggedIn:true,
+      username: user.foundUser.username
     })
   }
 
@@ -60,6 +62,7 @@ class App extends Component{
         users:copyUsers
     })
   }   
+
   handleSignin = (e) =>{
     const data = JSON.stringify({
         email: this.state.email,
@@ -76,13 +79,14 @@ class App extends Component{
     })
     .then(res => res.json())
     .then(resJson => {
-        console.log(resJson)
+        // console.log(resJson.foundUser.username)
         this.updateUser(resJson)
         this.handleAddUser(resJson)
-        this.setState = ({
+        this.setState({
             email:'',
-            password:''
+            password:'',
         })
+        console.log(this.state.users)
     })
     console.log(this.state.email)
     // fetch(baseURL + '/users/' + this.state.email)

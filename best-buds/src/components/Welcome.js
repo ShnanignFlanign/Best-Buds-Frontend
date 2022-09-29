@@ -60,7 +60,6 @@ class Welcome extends Component{
         {/* shouldnt we be mapping?? */}
         {/* should we be using seeded data and a separate modal */}
         {this.state.plants.map((plant) =>{
-            console.log(plant.name, plant.lightNeed)
             if(plant.username == 'default'){
               return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification}/>
             }
