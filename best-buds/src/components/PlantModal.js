@@ -12,6 +12,7 @@ class PlantModal extends Component {
       waterNeed: this.props.waterNeed,
       classification: this.props.classification,
       description: this.props.description,
+      username:this.props.username
     }
   }
   

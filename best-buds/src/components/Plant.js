@@ -15,6 +15,7 @@ class Plant extends Component{
       waterNeed: this.props.waterNeed,
       classification: this.props.classification,
       description: this.props.description,
+      username:this.props.username,
       readMore: false
     }
   }
@@ -46,7 +47,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification}/>
+            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.props.username}/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
@@ -56,7 +57,7 @@ class Plant extends Component{
       {/* Map though the plants array here */}
       <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
-        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification}/>
+        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
       </Card.Body>
     </Card>
      </Col>

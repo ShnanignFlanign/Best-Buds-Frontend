@@ -3,16 +3,20 @@ import AddPlantModal from './AddPlantModal'
 import EditModal from './EditModal'
 import Plant from './Plant'
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class UserPortal extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       name:'',
       img: '',
       lightNeed:'',
       waterNeed: '',
       description: '',
-      classification: ''
+      classification: '',
+      username:this.props.username,
+      plants:[]
     }
   }
 
@@ -20,7 +24,26 @@ class UserPortal extends Component{
     this.setState({
         [e.target.id]: e.target.value
     })
-}
+  }
+
+  getPlants = () => {
+    fetch(baseURL + '/plants')
+     .then((res) => {
+      if (res.status === 200) {
+       return res.json();
+      } else {
+       return [];
+      }
+     })
+     .then((data) => {
+      console.log(data);
+      this.setState({ plants: data.plants });
+     });
+  }
+
+  componentDidMount(){
+    this.getPlants()
+  }
 
   handleEdit = (plant) =>{
     //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
@@ -33,6 +56,7 @@ class UserPortal extends Component{
             waterNeed:this.state.waterNeed,
             description:this.state.description,
             classification:this.state.classification,
+            username: this.state.username
         }),
         headers:{
             'Content-Type':'application/json'
@@ -53,8 +77,14 @@ class UserPortal extends Component{
       return(
         <div>
           {/* pass down handle change to necessary modals */}
+          {this.state.plants.map((plant) =>{
+            if(plant.username == this.state.username){
+              return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username}/>
+            }
+          })
+          }
           <Plant handleChange={this.props.handleChange} />
-          <AddPlantModal handleChange={this.props.handleChange} />
+          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username}/>
         </div>
       )
     }

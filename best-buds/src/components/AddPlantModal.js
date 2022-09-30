@@ -29,7 +29,7 @@ class AddPlantModal extends Component {
           <Container>
             <Row>
             <Col>
-            <AddPlantForm handleChange={this.props.handleChange}/>
+            <AddPlantForm username={this.props.username} handleChange={this.props.handleChange}/>
               </Col>
             </Row>
             </Container>
