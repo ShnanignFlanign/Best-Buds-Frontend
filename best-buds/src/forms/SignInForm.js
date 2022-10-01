@@ -73,7 +73,7 @@ class SignInForm extends Component{
 
                     </fieldset>
                 </form>
-                <h5 className="mt-4">Don't have an account? <a style={{ color: '#333333'}}href={`/Register/`}>Register here.</a></h5>
+                <h5 className="mt-4">Don't have an account? <a style={{ color: '#333333'}}href={``}>Register here.</a></h5>
             </>
         )
     }
