@@ -49,6 +49,7 @@ class EditForm extends Component{
             const copyPlants = [...this.state.plants]
             const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
             copyPlants[findIndex] = resJson
+            this.props.handleUpdatePortal(resJson)
             this.setState({plants:[copyPlants]})
         })
         this.props.closeModal()

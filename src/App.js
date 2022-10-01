@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Welcome from './components/Welcome'
-import UserPortal from './components/userPortal'
+import UserPortal from './components/UserPortal'
 import {Container} from "react-bootstrap"
 import './App.css'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
