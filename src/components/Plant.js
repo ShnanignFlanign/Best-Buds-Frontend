@@ -4,8 +4,6 @@ import PlantModal from './PlantModal'
 import EditModal from './EditModal'
 
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
-
 class Plant extends Component{
   constructor(props){
     super(props)
