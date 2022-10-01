@@ -19,7 +19,7 @@ class Header extends Component{
         <RegisterModal handleRegister={this.props.handleRegister} updateUserReg={this.props.updateUserReg} handleChange={this.props.handleChange}/>
       </>
     } else {
-      content = <div>Sign Out Button</div>
+      content = <button onClick={this.props.handleSignout}>Sign Out</button>
     }
     return(
       <div className="custom-hdr">
