@@ -39,11 +39,6 @@ class Plant extends Component{
       })
     })
   }
-  
-
-  //edit method
-
-  //do we need the above functionality inside of app??
 
  render(){
    return(
