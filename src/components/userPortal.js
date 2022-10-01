@@ -3,8 +3,6 @@ import AddPlantModal from './AddPlantModal'
 import EditModal from './EditModal'
 import Plant from './Plant'
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
-
 class UserPortal extends Component{
   constructor(props){
     super(props)
@@ -28,7 +26,7 @@ class UserPortal extends Component{
 
 
   getPlants = () => {
-    fetch(baseURL + '/plants')
+    fetch(process.env.REACT_APP_BACKEND_URL + '/plants')
      .then((res) => {
       if (res.status === 200) {
        return res.json();
@@ -45,6 +43,7 @@ class UserPortal extends Component{
     this.getPlants()
     console.log()
   }
+
 
   handleAddPlant = (plant) =>{
     const copyPlants = [...this.state.plants]
@@ -96,14 +95,14 @@ class UserPortal extends Component{
       })
     }
 
-  
 
     render (){
 
       return(
         <div>
           {/* pass down handle change to necessary modals */}
-          {this.state.plants.map((plant) =>{
+          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
+          {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
               return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants}/>)
             }

@@ -22,10 +22,11 @@ class Plant extends Component{
     }
   }
 
+
   // //delete method 
   // handleDeletePlant = (id) =>{
   //   console.log(this.state.id)
-  //   fetch(baseURL + '/plants/' + id, {
+  //   fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
   //     method:'DELETE'
   //   })
   //   .then(res =>{
@@ -39,10 +40,6 @@ class Plant extends Component{
   // }
   
 
-  //edit method
-
-  //do we need the above functionality inside of app??
-
  render(){
    return(
      <Col>
@@ -50,7 +47,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.props.username}/>
+            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id}/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}

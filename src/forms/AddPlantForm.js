@@ -47,7 +47,7 @@ class AddPlantForm extends Component{
             username:this.props.username
         })
         console.log(plant)
-        fetch(baseURL, {
+        fetch(process.env.REACT_APP_BACKEND_URL + '/plants', {
             method:'POST',
             body: plant,
             headers:{

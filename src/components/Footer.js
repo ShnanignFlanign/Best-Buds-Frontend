@@ -11,8 +11,6 @@ class Footer extends Component{
         <Row className="custom-row">
         <Col xs={4} md={6} style={{textAlign: "left"}}> <h2>Logo</h2><h5>&copy; Copyright 2022</h5></Col>
         <Col xs={8} md={6} style={{textAlign: "right"}}>
-          {/* Should these be links?  */}
-          {/* Can we haave the icons link to the associated websites? */}
           <h4>Developers</h4>
           <h5>Agustina Fin Scigliano
           <a href="https://github.com/goosefin"><i class="bi bi-github" style={{ fontSize: 20, padding: 5}}></i></a>

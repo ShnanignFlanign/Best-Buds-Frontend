@@ -12,6 +12,8 @@ class EditModal extends Component {
       waterNeed: this.props.waterNeed,
       classification: this.props.classification,
       description: this.props.description,
+      username:this.props.username,
+      id: this.props.id,
       isOpen: false
     }
   }
@@ -32,7 +34,7 @@ class EditModal extends Component {
           <Container>
             <Row>
             <Col>
-            <EditForm handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification}/>
+            <EditForm handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} id={this.state.id} closeModal={this.closeModal}/>
               </Col>
             </Row>
             </Container>

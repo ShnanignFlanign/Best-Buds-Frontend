@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import {Nav, Navbar, Container} from "react-bootstrap";
+import {Nav,Button, Navbar, Container} from "react-bootstrap";
 import RegisterModal from './RegisterModal'
 import SignInModal from './SignInModal'
 
@@ -19,8 +19,10 @@ class Header extends Component{
         <RegisterModal handleRegister={this.props.handleRegister} updateUserReg={this.props.updateUserReg} handleChange={this.props.handleChange}/>
       </>
     } else {
+
       //THIS IS THE SIGN OUT BUTTON //
-      content = <button onClick={this.props.handleSignout}>Sign Out</button>
+      content = <Button variant="success" onClick={this.props.handleSignout}>Sign Out</Button>
+
     }
     return(
       <div className="custom-hdr">
