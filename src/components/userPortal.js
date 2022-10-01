@@ -3,6 +3,8 @@ import AddPlantModal from './AddPlantModal'
 import EditModal from './EditModal'
 import Plant from './Plant'
 
+let baseURL = process.env.REACT_APP_BASE_URL
+
 class UserPortal extends Component{
   constructor(props){
     super(props)
