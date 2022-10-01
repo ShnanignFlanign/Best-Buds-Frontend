@@ -67,6 +67,7 @@ class AddPlantForm extends Component{
                 classification:'',
                 username:''
             })
+            this.props.closeModal()
         })
     }
 
