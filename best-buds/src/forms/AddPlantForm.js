@@ -32,6 +32,7 @@ class AddPlantForm extends Component{
         })
     }
 
+    //NEED A WAY TO RE RENDER PAGE SO THAT THE NEW PLANT SHOWS UP
     handleSubmit = (e) =>{
         e.preventDefault()
         console.log(this.state)
@@ -45,7 +46,7 @@ class AddPlantForm extends Component{
             username:this.props.username
         })
         console.log(plant)
-        fetch('https://bestbud-backend.herokuapp.com/plants', {
+        fetch(baseURL, {
             method:'POST',
             body: plant,
             headers:{
@@ -54,8 +55,9 @@ class AddPlantForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log(resJson)
+            // console.log(resJson)
             this.handleAddPlant(resJson)
+            // this.props.updateUserPortal(resJson)
             this.setState({
                 name:'',
                 img:'',

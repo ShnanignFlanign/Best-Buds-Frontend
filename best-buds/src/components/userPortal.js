@@ -26,6 +26,11 @@ class UserPortal extends Component{
     })
   }
 
+  updateUserPortal = (plant) =>{
+    console.log({plants: plant})
+    this.setState({plants: plant})
+  }
+
   getPlants = () => {
     fetch(baseURL + '/plants')
      .then((res) => {
@@ -80,8 +85,7 @@ class UserPortal extends Component{
             }
           })
           }
-          <Plant handleChange={this.props.handleChange} />
-          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username}/>
+          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
         </div>
       )
     }
