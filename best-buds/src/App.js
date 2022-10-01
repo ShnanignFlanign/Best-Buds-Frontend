@@ -21,9 +21,6 @@ class App extends Component{
       username: '',
       isLoggedIn: false
     }
-    this.updateUser = this.updateUser.bind(this)
-    this.handleSignin= this.handleSignin.bind(this)
-    this.handleChange=this.handleChange.bind(this)
   }
 
   updateUser = (user) =>{
