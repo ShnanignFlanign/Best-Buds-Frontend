@@ -54,6 +54,7 @@ class EditForm extends Component{
             copyPlants[findIndex] = resJson
             this.setState({plants:[copyPlants]})
         })
+        this.props.closeModal()
       }
 
     
