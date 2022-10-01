@@ -51,7 +51,6 @@ class App extends Component{
      });
    }
 
-         // TESTING METHODS
    handleAddUser = (user) =>{
     const copyUsers = [...this.state.users]
     copyUsers.push(user)
@@ -86,6 +85,7 @@ class App extends Component{
         })
       })
   }//END HANDLE REGISTER
+
   //START HANDLE SIGNIN
   handleSignin = (e) =>{
     const data = JSON.stringify({
@@ -102,12 +102,18 @@ class App extends Component{
     })
     .then(res => res.json())
     .then(resJson => {
-        // console.log(resJson.foundUser.username)
         this.updateUser(resJson)
         this.handleAddUser(resJson)
         this.setState({email:'',password:''})
     })
   } //END handle signin
+
+  handleSignout = () => {
+    this.setState({
+      isLoggedIn: false, 
+      username: ''
+    })
+  }
   
   componentDidMount(){
     this.getPlants()
@@ -124,62 +130,8 @@ class App extends Component{
     }
     return(
       <div>
-      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} updateUser={this.updateUser} updateUserReg={this.updateUserReg} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
+      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} handleSignout={this.handleSignout} updateUser={this.updateUser} updateUserReg={this.updateUserReg} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
       <Container className="pt-5 pb-5">
-
-        {/* REGISTER FORM */}
-        {/* <form onSubmit={this.handleRegister}>
-            <label htmlFor="username">Userame:</label>
-            <input
-                type="text"
-                htmlFor="username"
-                id="username"
-                name="username"
-                onChange={this.handleChange}
-            />
-
-            <label htmlFor="email">Email:</label>
-            <input
-                type="email"
-                htmlFor="email"
-                id="email"
-                name="email"
-                onChange={this.handleChange}
-            />
-
-            <label htmlFor="password">Password:</label>
-            <input
-                type="password"
-                htmlFor="password"
-                id="password"
-                onChange={this.handleChange}
-            />
-            <input type="submit" value="Create Account"/>
-        </form> */}
-        {/* END REGISTER FORM */}
-
-        {/* SIGNIN FORM */}
-        {/* <form onSubmit={this.handleSignin}>
-          <label htmlFor="email">Email:</label>
-          <input
-              type="email"
-              htmlFor="email"
-              id="email"
-              name="email"
-              onChange={this.handleChange}
-          />
-
-          <label htmlFor="password">Password:</label>
-          <input
-              type="password"
-              htmlFor="password"
-              id="password"
-              onChange={this.handleChange}
-          />
-          <input type="submit" value="Sign In"/>
-        </form> */}
-        {/* END SIGNIN FORM */}
-
         { content }
       </Container>
        <Footer/>
