@@ -1,20 +1,61 @@
 import React, {Component} from 'react'
 import {Row, Col, Form, Button} from "react-bootstrap";
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class EditForm extends Component{
     constructor(props){
         super(props)
         this.state = {
-            name:'',
-            img:'',
-            lightNeed:'',
-            waterNeed:'',
-            description:'',
-            classification:'',
-            username:'',
+            name:this.props.name,
+            img:this.props.img,
+            lightNeed:this.props.lightNeed,
+            waterNeed:this.props.waterNeed,
+            description:this.props.description,
+            classification:this.props.classification,
+            username:this.props.username,
+            id:this.props.id,
             plants: []
         }
     }
+
+    handleChange = (e) =>{
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+      }
+
+    handleSubmit = (e) =>{
+        //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
+        e.preventDefault()
+        const plant = JSON.stringify({
+            name:this.state.name,
+            img:this.state.img,
+            lightNeed:this.state.lightNeed,
+            waterNeed:this.state.waterNeed,
+            description:this.state.description,
+            classification:this.state.classification,
+            username: this.state.username,
+            id: this.state.id
+        })
+        fetch(baseURL+ '/plants/' + this.state.id, {
+            method:'PUT',
+            body: plant,
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(resJson => {
+            console.log('THIS IS WORKING')
+            console.log(resJson)
+            const copyPlants = [...this.state.plants]
+            const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
+            copyPlants[findIndex] = resJson
+            this.setState({plants:[copyPlants]})
+        })
+      }
+
     
 
     render(){
@@ -32,7 +73,8 @@ class EditForm extends Component{
                     htmlFor="name"
                     id="name"
                     name="name"
-                    onChange={this.props.handleChange}
+                    value={this.state.name}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -43,7 +85,8 @@ class EditForm extends Component{
                     htmlFor="img"
                     id="img"
                     name="img"
-                    onChange={this.props.handleChange}
+                    value={this.state.img}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
               </Col>
@@ -57,7 +100,8 @@ class EditForm extends Component{
                     htmlFor="lightNeed"
                     id="lightNeed"
                     name="lightNeed"
-                    onChange={this.props.handleChange}
+                    value={this.state.lightNeed}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -68,7 +112,8 @@ class EditForm extends Component{
                     htmlFor="waterNeed"
                     id="waterNeed"
                     name="waterNeed"
-                    onChange={this.props.handleChange}
+                    value={this.state.waterNeed}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -78,7 +123,8 @@ class EditForm extends Component{
                     htmlFor="description"
                     id="description"
                     name="description"
-                    onChange={this.props.handleChange}
+                    value={this.state.description}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -88,7 +134,8 @@ class EditForm extends Component{
                     htmlFor="classification"
                     id="classification"
                     name="classification"
-                    onChange={this.props.handleChange}
+                    value={this.state.classification}
+                    onChange={this.handleChange}
                 >
                 <option>Algae</option>
                   <option>Moss</option>
