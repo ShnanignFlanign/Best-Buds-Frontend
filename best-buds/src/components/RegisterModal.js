@@ -28,7 +28,34 @@ class RegisterModal extends Component {
           <Container>
             <Row>
               <Col>
-                <RegisterForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
+                <form onSubmit={this.props.handleRegister}>
+                  <label htmlFor="username">Userame:</label>
+                  <input
+                      type="text"
+                      htmlFor="username"
+                      id="username"
+                      name="username"
+                      onChange={this.props.handleChange}
+                  />
+
+                  <label htmlFor="email">Email:</label>
+                  <input
+                      type="email"
+                      htmlFor="email"
+                      id="email"
+                      name="email"
+                      onChange={this.props.handleChange}
+                  />
+
+                  <label htmlFor="password">Password:</label>
+                  <input
+                      type="password"
+                      htmlFor="password"
+                      id="password"
+                      onChange={this.props.handleChange}
+                  />
+                  <input type="submit" value="Create Account"/>
+              </form>
               </Col>
             </Row>
             </Container>

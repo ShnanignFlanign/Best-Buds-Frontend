@@ -127,11 +127,11 @@ class App extends Component{
     }
     return(
       <div>
-      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} updateUser={this.updateUser} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
+      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} updateUser={this.updateUser} updateUserReg={this.updateUserReg} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
       <Container className="pt-5 pb-5">
 
         {/* REGISTER FORM */}
-        <form onSubmit={this.handleRegister}>
+        {/* <form onSubmit={this.handleRegister}>
             <label htmlFor="username">Userame:</label>
             <input
                 type="text"
@@ -158,7 +158,7 @@ class App extends Component{
                 onChange={this.handleChange}
             />
             <input type="submit" value="Create Account"/>
-        </form>
+        </form> */}
         {/* END REGISTER FORM */}
 
         {/* SIGNIN FORM */}
