@@ -23,7 +23,6 @@ class Welcome extends Component{
       }
      })
      .then((data) => {
-      console.log(data);
       this.setState({ plants: data.plants });
      });
   }

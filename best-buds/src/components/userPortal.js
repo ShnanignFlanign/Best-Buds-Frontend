@@ -36,7 +36,6 @@ class UserPortal extends Component{
       }
      })
      .then((data) => {
-      console.log(data);
       this.setState({ plants: data.plants });
      });
   }
@@ -67,9 +66,7 @@ class UserPortal extends Component{
         const copyPlants = [...this.state.plants]
         const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
         copyPlants[findIndex] = resJson
-        this.setState = ({
-            plants:[copyPlants]
-        })
+        this.setState({plants:[copyPlants]})
     })
   }
 

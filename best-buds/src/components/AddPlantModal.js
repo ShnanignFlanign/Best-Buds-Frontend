@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Modal, Button, Container, Row, Col} from "react-bootstrap";
 import AddPlantForm from '../forms/AddPlantForm'
 
+
 class AddPlantModal extends Component {
   constructor(props){
     super(props)

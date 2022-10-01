@@ -32,6 +32,8 @@ class App extends Component{
 
 
   handleChange = (e) =>{
+    console.log(e.target.value)
+    console.log(e.target.id)
     this.setState({[e.target.id]: e.target.value})
   }
 
@@ -45,7 +47,6 @@ class App extends Component{
       }
      })
      .then((data) => {
-      console.log(data);
       this.setState({ plants: data.plants });
      });
    }
@@ -64,7 +65,6 @@ class App extends Component{
         email: this.state.email,
         password: this.state.password
     })
-    console.log(data)
     e.preventDefault()
     fetch(baseURL + '/users/signin', {
         method:'POST',
@@ -100,9 +100,6 @@ class App extends Component{
     this.getPlants()
   }
 
-  checkState = () =>{
-    console.log(this.state)
-  }
   //END TESTING METHODS
 
   render (){
@@ -126,7 +123,6 @@ class App extends Component{
               htmlFor="email"
               id="email"
               name="email"
-              onClick={this.checkState}
               onChange={this.handleChange}
           />
 

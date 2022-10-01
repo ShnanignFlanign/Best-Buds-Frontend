@@ -37,7 +37,6 @@ class AddPlantForm extends Component{
                 waterNeed:this.state.waterNeed,
                 description:this.state.description,
                 calssification:this.state.classification,
-                //need a way to attach the username to the plant that is being created
                 username:this.props.username
             }),
             headers:{
@@ -48,7 +47,7 @@ class AddPlantForm extends Component{
         .then(resJson => {
             console.log(resJson)
             this.handleAddPlant(resJson)
-            this.setState = ({
+            this.setState({
                 name:'',
                 img:'',
                 lightNeed:'',
