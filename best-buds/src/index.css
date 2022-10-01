@@ -68,10 +68,11 @@ Form.Control{
 
 .buttonWidth {
   width: 100%;
-  padding: 20px 0 20px 0;
+  padding: 10px 0 10px 0;
   margin-top: 20px;
   font-weight:bold;
 }
+
 
 .buttonWidthLargeModal {
   width: 50%;
@@ -82,6 +83,19 @@ Form.Control{
 
 .ePDesign{
   width: 2000px;
+}
+
+.signInColor{
+  background-color:transparent;
+  border: none;
+  color: #2b472b;
+}
+
+.signInColor:hover{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
 }
 
 .plantNameColor{

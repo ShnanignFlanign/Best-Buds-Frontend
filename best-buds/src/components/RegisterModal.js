@@ -22,9 +22,9 @@ class RegisterModal extends Component {
           </Button>
         </div>
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
+          <Modal.Header className="border-0" closeButton>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="pb-4">
           <Container>
             <Row>
               <Col>
