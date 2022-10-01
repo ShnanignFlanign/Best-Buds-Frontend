@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Row, Col, Form, Button} from "react-bootstrap";
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class EditForm extends Component{
     constructor(props){
         super(props)
@@ -23,25 +25,30 @@ class EditForm extends Component{
         })
       }
 
-    handleSubmit = (plant) =>{
+    handleSubmit = (e) =>{
         //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
-        fetch('https://bestbud-backend.herokuapp.com/plants' + plant._id, {
+        e.preventDefault()
+        const plant = JSON.stringify({
+            name:this.state.name,
+            img:this.state.img,
+            lightNeed:this.state.lightNeed,
+            waterNeed:this.state.waterNeed,
+            description:this.state.description,
+            classification:this.state.classification,
+            username: this.state.username,
+            id: this.state.id
+        })
+        fetch(baseURL+ '/plants/' + this.state.id, {
             method:'PUT',
-            body: JSON.stringify({
-                name:this.state.name,
-                img:this.state.img,
-                lightNeed:this.state.lightNeed,
-                waterNeed:this.state.waterNeed,
-                description:this.state.description,
-                classification:this.state.classification,
-                username: this.state.username
-            }),
+            body: plant,
             headers:{
                 'Content-Type':'application/json'
             }
         })
         .then(res => res.json())
         .then(resJson => {
+            console.log('THIS IS WORKING')
+            console.log(resJson)
             const copyPlants = [...this.state.plants]
             const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
             copyPlants[findIndex] = resJson
@@ -53,7 +60,7 @@ class EditForm extends Component{
 
     render(){
         return(
-            <form onSubmit={()=>this.handleSubmit()}>
+            <form onSubmit={this.handleSubmit}>
             <fieldset>
             <h3 className="text-center d-block">Change your Bud</h3>
             <Row className="justify-content-md-center">
@@ -78,6 +85,7 @@ class EditForm extends Component{
                     htmlFor="img"
                     id="img"
                     name="img"
+                    value={this.state.img}
                     onChange={this.handleChange}
                 />
                 </Form.Group>
@@ -92,6 +100,7 @@ class EditForm extends Component{
                     htmlFor="lightNeed"
                     id="lightNeed"
                     name="lightNeed"
+                    value={this.state.lightNeed}
                     onChange={this.handleChange}
                 />
                 </Form.Group>
@@ -103,6 +112,7 @@ class EditForm extends Component{
                     htmlFor="waterNeed"
                     id="waterNeed"
                     name="waterNeed"
+                    value={this.state.waterNeed}
                     onChange={this.handleChange}
                 />
                 </Form.Group>
@@ -113,6 +123,7 @@ class EditForm extends Component{
                     htmlFor="description"
                     id="description"
                     name="description"
+                    value={this.state.description}
                     onChange={this.handleChange}
                 />
                 </Form.Group>
@@ -123,6 +134,7 @@ class EditForm extends Component{
                     htmlFor="classification"
                     id="classification"
                     name="classification"
+                    value={this.state.classification}
                     onChange={this.handleChange}
                 >
                 <option>Algae</option>
