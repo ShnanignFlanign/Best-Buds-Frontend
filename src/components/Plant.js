@@ -47,7 +47,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id} handleUdatePortal={this.props.handleUpdatePortal}/>
+            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id} handleUdatePortal={this.props.handleUpdatePortal} handleChangeId={this.props.handleChangeId} handleSubmit={this.props.handleSubmit}/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
