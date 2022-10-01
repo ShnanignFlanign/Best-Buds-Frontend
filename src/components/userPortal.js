@@ -55,13 +55,13 @@ class UserPortal extends Component{
       return(
         <div>
           {/* pass down handle change to necessary modals */}
+          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
               return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} id={plant._id} plants={this.state.plants} key={i}/>
             }
           })
           }
-          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
         </div>
       )
     }
