@@ -10,7 +10,7 @@ import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
 //base plants URL '/plants'
 //base users URL '/users'
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
+let baseURL = process.env.REACT_APP_BACKEND_URL
 
 class App extends Component{
   constructor(){
