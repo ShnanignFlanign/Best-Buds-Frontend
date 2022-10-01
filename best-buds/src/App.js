@@ -58,7 +58,35 @@ class App extends Component{
         users:copyUsers
     })
   }   
-
+  //START HANDLE REGISTER 
+  handleRegister = (e) =>{
+    const data = JSON.stringify({
+        username:this.state.username,
+        email: this.state.email,
+        password: this.state.password
+    })
+    console.log(data)
+    e.preventDefault()
+    fetch(baseURL + '/users/signup', {
+        method:'POST',
+        body: data,
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+        console.log(resJson)
+        this.updateUser(resJson)
+        this.handleAddUser(resJson)
+        this.setState ({
+            username: '',
+            email:'',
+            password:''
+        })
+      })
+  }//END HANDLE REGISTER
+  //START HANDLE SIGNIN
   handleSignin = (e) =>{
     const data = JSON.stringify({
         email: this.state.email,
@@ -84,7 +112,6 @@ class App extends Component{
   componentDidMount(){
     this.getPlants()
   }
-
   //END TESTING METHODS
 
   render (){
@@ -97,11 +124,42 @@ class App extends Component{
     }
     return(
       <div>
-      <Header  updateUser={this.updateUser} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
+      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} updateUser={this.updateUser} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
       <Container className="pt-5 pb-5">
 
+        {/* REGISTER FORM */}
+        <form onSubmit={this.handleRegister}>
+            <label htmlFor="username">Userame:</label>
+            <input
+                type="text"
+                htmlFor="username"
+                id="username"
+                name="username"
+                onChange={this.handleChange}
+            />
+
+            <label htmlFor="email">Email:</label>
+            <input
+                type="email"
+                htmlFor="email"
+                id="email"
+                name="email"
+                onChange={this.handleChange}
+            />
+
+            <label htmlFor="password">Password:</label>
+            <input
+                type="password"
+                htmlFor="password"
+                id="password"
+                onChange={this.handleChange}
+            />
+            <input type="submit" value="Create Account"/>
+        </form>
+        {/* END REGISTER FORM */}
+
         {/* SIGNIN FORM */}
-        <form onSubmit={this.handleSignin}>
+        {/* <form onSubmit={this.handleSignin}>
           <label htmlFor="email">Email:</label>
           <input
               type="email"
@@ -119,7 +177,7 @@ class App extends Component{
               onChange={this.handleChange}
           />
           <input type="submit" value="Sign In"/>
-        </form>
+        </form> */}
         {/* END SIGNIN FORM */}
 
         { content }

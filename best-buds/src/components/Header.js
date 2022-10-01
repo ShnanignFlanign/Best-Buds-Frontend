@@ -15,7 +15,7 @@ class Header extends Component{
     let content;
     if (!this.props.isLoggedIn){
       content = <>
-        <SignInModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
+        <SignInModal handleSignin={this.props.handleSignin} handleRegister={this.props.handleRegister} updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
         <RegisterModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
       </>
     } else {

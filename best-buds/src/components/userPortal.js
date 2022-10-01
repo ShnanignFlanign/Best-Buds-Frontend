@@ -75,7 +75,7 @@ class UserPortal extends Component{
         <div>
           {/* pass down handle change to necessary modals */}
           {this.state.plants.map((plant) =>{
-            if(plant.username == this.state.username){
+            if(plant.username === this.state.username){
               return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username}/>
             }
           })
