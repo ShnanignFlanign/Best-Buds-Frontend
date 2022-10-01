@@ -120,7 +120,7 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome plants={this.state.plants}/>
     } else {
-      content = <UserPortal users={this.state.users} username={this.state.username}handleChange={this.handleChange}/>
+      content = <UserPortal users={this.state.users} username={this.state.username} handleChange={this.handleChange}/>
     }
     return(
       <div>
