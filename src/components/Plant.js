@@ -2,7 +2,6 @@ import React, { Component} from 'react'
 import {Col, Card, Nav} from "react-bootstrap";
 import PlantModal from './PlantModal'
 import EditModal from './EditModal'
-import UserPortal from './userPortal'
 
 
 class Plant extends Component{
@@ -23,21 +22,23 @@ class Plant extends Component{
     }
   }
 
-  //delete method 
-  handleDeletePlant = (id) =>{
-    console.log(this.state.id)
-    fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
-      method:'DELETE'
-    })
-    .then(res =>{
-      const copyPlants = [...this.state.plants]
-      const findIndex = this.state.plants.findIndex((plant) => plant._id === id)
-      copyPlants.splice(findIndex,1)
-      this.setState({
-        plants: copyPlants
-      })
-    })
-  }
+
+  // //delete method 
+  // handleDeletePlant = (id) =>{
+  //   console.log(this.state.id)
+  //   fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
+  //     method:'DELETE'
+  //   })
+  //   .then(res =>{
+  //     const copyPlants = [...this.state.plants]
+  //     const findIndex = this.state.plants.findIndex((plant) => plant._id === id)
+  //     copyPlants.splice(findIndex,1)
+  //     this.setState({
+  //       plants: copyPlants
+  //     })
+  //   })
+  // }
+  
 
  render(){
    return(
@@ -50,7 +51,7 @@ class Plant extends Component{
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
-            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.handleDeletePlant(this.state.id)}></i></Nav.Link>
+            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
       {/* Map though the plants array here */}

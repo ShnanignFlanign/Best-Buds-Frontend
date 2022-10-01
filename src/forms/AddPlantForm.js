@@ -14,7 +14,8 @@ class AddPlantForm extends Component{
             description:'',
             classification:'',
             username:'',
-            plants: []
+            plants: [],
+
         }
     }
 
@@ -24,18 +25,18 @@ class AddPlantForm extends Component{
         this.setState({[e.target.id]: e.target.value})
     }
 
-    handleAddPlant = (plant) =>{
-        const copyPlants = [...this.state.plants]
-        copyPlants.push(plant)
-        this.setState({
-            plants:copyPlants
-        })
-    }
+    // handleAddPlant = (plant) =>{
+    //     const copyPlants = [...this.state.plants]
+    //     copyPlants.push(plant)
+    //     this.setState({
+    //         plants:copyPlants,
+    //     })
+    // }
 
     //NEED A WAY TO RE RENDER PAGE SO THAT THE NEW PLANT SHOWS UP
     handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
         const plant =  JSON.stringify({
             name:this.state.name,
             img:this.state.img,
@@ -55,7 +56,8 @@ class AddPlantForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            this.handleAddPlant(resJson)
+            // console.log(resJson)
+            this.props.handleAddPlant(resJson)
             this.setState({
                 name:'',
                 img:'',
@@ -65,6 +67,7 @@ class AddPlantForm extends Component{
                 classification:'',
                 username:''
             })
+            this.props.closeModal()
         })
     }
 
