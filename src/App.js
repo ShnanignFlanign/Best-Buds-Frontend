@@ -17,18 +17,23 @@ class App extends Component{
     super()
     this.state = {
       plants:[],
-      users: [],
       username: '',
       isLoggedIn: false
     }
   }
 
   updateUser = (user) =>{
-    this.setState({users: user, isLoggedIn:true, username: user.foundUser.username})
+    this.setState({
+      isLoggedIn:true, 
+      username: user.foundUser.username
+    })
   }
 
   updateUserReg = (content) =>{
-    this.setState({users: content.user, isLoggedIn:true, username: content.user.username})
+    this.setState({ 
+      isLoggedIn:true, 
+      username: content.user.username
+    })
   }
 
   handleChange = (e) =>{
@@ -49,13 +54,7 @@ class App extends Component{
      });
    }
 
-   handleAddUser = (user) =>{
-    const copyUsers = [...this.state.users]
-    copyUsers.push(user)
-    this.setState({
-        users:copyUsers
-    })
-  }   
+
   //START HANDLE REGISTER 
   handleRegister = (e) =>{
     const data = JSON.stringify({
@@ -76,7 +75,6 @@ class App extends Component{
     .then(resJson => {
         console.log(resJson)
         this.updateUserReg(resJson)
-        this.handleAddUser(resJson)
         this.setState ({
             email:'',
             password:''
@@ -101,7 +99,6 @@ class App extends Component{
     .then(res => res.json())
     .then(resJson => {
         this.updateUser(resJson)
-        this.handleAddUser(resJson)
         this.setState({email:'',password:''})
     })
   } //END handle signin
@@ -116,7 +113,6 @@ class App extends Component{
   componentDidMount(){
     this.getPlants()
   }
-  //END TESTING METHODS
 
   render (){
     const isLoggedIn = this.state.isLoggedIn;
@@ -124,7 +120,7 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome plants={this.state.plants}/>
     } else {
-      content = <UserPortal users={this.state.users} username={this.state.username} handleChange={this.handleChange}/>
+      content = <UserPortal username={this.state.username}handleChange={this.handleChange}/>
     }
     return(
       <div>
