@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import {Col, Card, Nav} from "react-bootstrap";
 import PlantModal from './PlantModal'
 import EditModal from './EditModal'
-import UserPortal from './userPortal'
+
 
 let baseURL = 'https://bestbud-backend.herokuapp.com'
 
@@ -62,7 +62,7 @@ class Plant extends Component{
       {/* Map though the plants array here */}
       <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
-        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
+        <PlantModal newPlant={this.props.newPlant} handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
       </Card.Body>
     </Card>
      </Col>

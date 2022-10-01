@@ -16,7 +16,8 @@ class UserPortal extends Component{
       description: '',
       classification: '',
       username:this.props.username,
-      plants:[]
+      plants:[],
+      newPlant: ''
     }
   }
 
@@ -25,10 +26,18 @@ class UserPortal extends Component{
         [e.target.id]: e.target.value
     })
   }
+  getNewPlant = (plant) => {
+    this.setState({
+      newPlant: plant
+    })
+  }
 
   updateUserPortal = (plant) =>{
     console.log({plants: plant})
-    this.setState({plants: plant})
+    this.setState({
+      plants: plant,
+      newPlant: plant
+    })
   }
 
   getPlants = () => {
@@ -79,16 +88,17 @@ class UserPortal extends Component{
   
 
     render (){
+
       return(
         <div>
           {/* pass down handle change to necessary modals */}
           {this.state.plants.map((plant) =>{
             if(plant.username === this.state.username){
-              return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} id={plant._id} plants={this.state.plants}/>
+              return (<Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants}/>)
             }
           })
           }
-          <AddPlantModal handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
+          <AddPlantModal getNewPlant={this.getNewPlant} handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
         </div>
       )
     }
