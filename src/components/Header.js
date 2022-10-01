@@ -19,6 +19,7 @@ class Header extends Component{
         <RegisterModal handleRegister={this.props.handleRegister} updateUserReg={this.props.updateUserReg} handleChange={this.props.handleChange}/>
       </>
     } else {
+      //THIS IS THE SIGN OUT BUTTON //
       content = <button onClick={this.props.handleSignout}>Sign Out</button>
     }
     return(

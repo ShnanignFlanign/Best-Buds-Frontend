@@ -106,10 +106,13 @@ class App extends Component{
   } //END handle signin
 
   handleSignout = () => {
-    this.setState({
-      isLoggedIn: false, 
-      username: ''
-    })
+    // fetch(baseURL + '/users/signout')
+    // .then(() => {
+      this.setState({
+        isLoggedIn: false, 
+        username: ''
+      })
+    // })
   }
   
   componentDidMount(){
