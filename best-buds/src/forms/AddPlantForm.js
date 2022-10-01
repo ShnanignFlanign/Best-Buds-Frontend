@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Form, Button} from "react-bootstrap";
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class AddPlantForm extends Component{
     constructor(props){
         super(props)
@@ -26,7 +28,7 @@ class AddPlantForm extends Component{
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        fetch('http://localhost:3003/plants', {
+        fetch(baseURL + '/plants', {
             method:'POST',
             body: JSON.stringify({
                 name:this.state.name,
@@ -35,8 +37,7 @@ class AddPlantForm extends Component{
                 waterNeed:this.state.waterNeed,
                 description:this.state.description,
                 calssification:this.state.classification,
-                //need a way to attach the username to the plant that is being created
-                username:''
+                username:this.props.username
             }),
             headers:{
                 'Content-Type':'application/json'
@@ -44,9 +45,9 @@ class AddPlantForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('NewPlant - resJson' + resJson)
+            console.log(resJson)
             this.handleAddPlant(resJson)
-            this.setState = ({
+            this.setState({
                 name:'',
                 img:'',
                 lightNeed:'',

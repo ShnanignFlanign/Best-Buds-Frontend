@@ -15,28 +15,26 @@ let baseURL = 'https://bestbud-backend.herokuapp.com'
 class App extends Component{
   constructor(){
     super()
-    this.updateUser = this.updateUser.bind(this)
     this.state = {
       plants:[],
       users: [],
       username: '',
       isLoggedIn: false
     }
+    this.updateUser = this.updateUser.bind(this)
+    this.handleSignin= this.handleSignin.bind(this)
+    this.handleChange=this.handleChange.bind(this)
   }
 
   updateUser = (user) =>{
-    this.setState({
-      users: user,
-      isLoggedIn:true,
-      username: user.foundUser.username
-    })
+    this.setState({users: user, isLoggedIn:true, username: user.foundUser.username})
   }
+
 
   handleChange = (e) =>{
     console.log(e.target.value)
-    this.setState({
-        [e.target.id]: e.target.value
-    })
+    console.log(e.target.id)
+    this.setState({[e.target.id]: e.target.value})
   }
 
   getPlants = () => {
@@ -49,7 +47,6 @@ class App extends Component{
       }
      })
      .then((data) => {
-      console.log(data);
       this.setState({ plants: data.plants });
      });
    }
@@ -58,7 +55,7 @@ class App extends Component{
    handleAddUser = (user) =>{
     const copyUsers = [...this.state.users]
     copyUsers.push(user)
-    this.setState = ({
+    this.setState({
         users:copyUsers
     })
   }   
@@ -68,7 +65,6 @@ class App extends Component{
         email: this.state.email,
         password: this.state.password
     })
-    console.log(data)
     e.preventDefault()
     fetch(baseURL + '/users/signin', {
         method:'POST',
@@ -82,13 +78,9 @@ class App extends Component{
         // console.log(resJson.foundUser.username)
         this.updateUser(resJson)
         this.handleAddUser(resJson)
-        this.setState({
-            email:'',
-            password:'',
-        })
-        console.log(this.state.users)
+        this.setState({email:'',password:''})
     })
-    console.log(this.state.email)
+    // console.log(this.state.email)
     // fetch(baseURL + '/users/' + this.state.email)
     // .then((res) => {
     //   if (res.status === 200) {
@@ -107,6 +99,7 @@ class App extends Component{
   componentDidMount(){
     this.getPlants()
   }
+
   //END TESTING METHODS
 
   render (){
@@ -115,11 +108,11 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome plants={this.state.plants}/>
     } else {
-      content = <UserPortal users={this.state.users} handleChange={this.handleChange}/>
+      content = <UserPortal users={this.state.users} username={this.state.username}handleChange={this.handleChange}/>
     }
     return(
       <div>
-      <Header updateUser={this.updateUser} handleChange={this.handleChange} />
+      <Header  updateUser={this.updateUser} handleChange={this.handleChange} />
       <Container className="pt-5 pb-5">
 
         {/* SIGNIN FORM */}
