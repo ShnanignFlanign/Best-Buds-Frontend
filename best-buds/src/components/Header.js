@@ -12,6 +12,15 @@ class Header extends Component{
   }
   
   render(){
+    let content;
+    if (!this.props.isLoggedIn){
+      content = <>
+        <SignInModal handleSignin={this.props.handleSignin}  updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
+        <RegisterModal handleRegister={this.props.handleRegister} updateUserReg={this.props.updateUserReg} handleChange={this.props.handleChange}/>
+      </>
+    } else {
+      content = <div>Sign Out Button</div>
+    }
     return(
       <div className="custom-hdr">
       <Navbar expand="lg">
@@ -19,9 +28,7 @@ class Header extends Component{
         {/* Link to home page here */}
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
-          {/* Link to sign in modal here */}
-          <SignInModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
-          <RegisterModal updateUser={this.props.updateUser} handleChange={this.props.handleChange}/>
+          {content}
         </Nav>
       </Container>
       </Navbar>

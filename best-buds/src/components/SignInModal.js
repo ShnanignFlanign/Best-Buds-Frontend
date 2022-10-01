@@ -30,7 +30,25 @@ class SignInModal extends Component {
             <Row>
             <Col>
             {/* <input type="text" onChange={this.props.handleChange}/> */}
-            <SignInForm handleChange={this.props.handleChange} updateUser={this.props.updateUser}/>
+            <form onSubmit={this.props.handleSignin}>
+              <label htmlFor="email">Email:</label>
+              <input
+                  type="email"
+                  htmlFor="email"
+                  id="email"
+                  name="email"
+                  onChange={this.props.handleChange}
+              />
+
+              <label htmlFor="password">Password:</label>
+              <input
+                  type="password"
+                  htmlFor="password"
+                  id="password"
+                  onChange={this.props.handleChange}
+              />
+              <input type="submit" value="Sign In"/>
+            </form>
               </Col>
             </Row>
             </Container>

@@ -27,6 +27,9 @@ class App extends Component{
     this.setState({users: user, isLoggedIn:true, username: user.foundUser.username})
   }
 
+  updateUserReg = (content) =>{
+    this.setState({users: content.user, isLoggedIn:true, username: content.user.username})
+  }
 
   handleChange = (e) =>{
     console.log(e.target.value)
@@ -56,7 +59,34 @@ class App extends Component{
         users:copyUsers
     })
   }   
-
+  //START HANDLE REGISTER 
+  handleRegister = (e) =>{
+    const data = JSON.stringify({
+        username:this.state.username,
+        email: this.state.email,
+        password: this.state.password
+    })
+    console.log(data)
+    e.preventDefault()
+    fetch(baseURL + '/users/signup', {
+        method:'POST',
+        body: data,
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+        console.log(resJson)
+        this.updateUserReg(resJson)
+        this.handleAddUser(resJson)
+        this.setState ({
+            email:'',
+            password:''
+        })
+      })
+  }//END HANDLE REGISTER
+  //START HANDLE SIGNIN
   handleSignin = (e) =>{
     const data = JSON.stringify({
         email: this.state.email,
@@ -77,26 +107,11 @@ class App extends Component{
         this.handleAddUser(resJson)
         this.setState({email:'',password:''})
     })
-    // console.log(this.state.email)
-    // fetch(baseURL + '/users/' + this.state.email)
-    // .then((res) => {
-    //   if (res.status === 200) {
-    //    return res.json();
-    //   } else {
-    //    return [];
-    //   }
-    //  })
-    //  .then((data) => {
-    //   console.log(data);
-    //   this.setState({ user: data.username });
-    //  });
-
   } //END handle signin
   
   componentDidMount(){
     this.getPlants()
   }
-
   //END TESTING METHODS
 
   render (){
@@ -109,11 +124,42 @@ class App extends Component{
     }
     return(
       <div>
-      <Header  updateUser={this.updateUser} handleChange={this.handleChange} />
+      <Header handleSignin={this.handleSignin} handleRegister={this.handleRegister} updateUser={this.updateUser} updateUserReg={this.updateUserReg} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
       <Container className="pt-5 pb-5">
 
+        {/* REGISTER FORM */}
+        {/* <form onSubmit={this.handleRegister}>
+            <label htmlFor="username">Userame:</label>
+            <input
+                type="text"
+                htmlFor="username"
+                id="username"
+                name="username"
+                onChange={this.handleChange}
+            />
+
+            <label htmlFor="email">Email:</label>
+            <input
+                type="email"
+                htmlFor="email"
+                id="email"
+                name="email"
+                onChange={this.handleChange}
+            />
+
+            <label htmlFor="password">Password:</label>
+            <input
+                type="password"
+                htmlFor="password"
+                id="password"
+                onChange={this.handleChange}
+            />
+            <input type="submit" value="Create Account"/>
+        </form> */}
+        {/* END REGISTER FORM */}
+
         {/* SIGNIN FORM */}
-        <form onSubmit={this.handleSignin}>
+        {/* <form onSubmit={this.handleSignin}>
           <label htmlFor="email">Email:</label>
           <input
               type="email"
@@ -131,7 +177,7 @@ class App extends Component{
               onChange={this.handleChange}
           />
           <input type="submit" value="Sign In"/>
-        </form>
+        </form> */}
         {/* END SIGNIN FORM */}
 
         { content }

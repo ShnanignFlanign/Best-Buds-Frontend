@@ -12,41 +12,41 @@ class RegisterForm extends Component{
         }
     }
 
-    handleAddUser = (user) =>{
-        const copyUsers = [...this.state.users]
-        copyUsers.push(user)
-        this.setState({
-            users:copyUsers
-        })
-    }
+    // handleAddUser = (user) =>{
+    //     const copyUsers = [...this.state.users]
+    //     copyUsers.push(user)
+    //     this.setState({
+    //         users:copyUsers
+    //     })
+    // }
 
-    handleRegister = (e) =>{
-        const data = JSON.stringify({
-            username:this.state.username,
-            email: this.state.email,
-            password: this.state.password
-        })
-        console.log(data)
-        e.preventDefault()
-        fetch('http://localhost:3003/users/signup', {
-            method:'POST',
-            body: data,
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(resJson => {
-            console.log('NewUser - resJson' + resJson)
-            this.props.updateUser(resJson)
-            this.handleAddUser(resJson)
-            this.setState = ({
-                username: '',
-                email:'',
-                password:''
-            })
-        })
-    }
+    // handleRegister = (e) =>{
+    //     const data = JSON.stringify({
+    //         username:this.state.username,
+    //         email: this.state.email,
+    //         password: this.state.password
+    //     })
+    //     console.log(data)
+    //     e.preventDefault()
+    //     fetch('http://localhost:3003/users/signup', {
+    //         method:'POST',
+    //         body: data,
+    //         headers:{
+    //             'Content-Type':'application/json'
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(resJson => {
+    //         console.log(resJson)
+    //         this.props.updateUser(resJson)
+    //         this.handleAddUser(resJson)
+    //         this.setState ({
+    //             username: '',
+    //             email:'',
+    //             password:''
+    //         })
+    //     })
+    // }
 
     render(){
         return(
