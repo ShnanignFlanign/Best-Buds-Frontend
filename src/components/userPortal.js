@@ -50,41 +50,14 @@ class UserPortal extends Component{
     console.log()
   }
 
-  handleEdit = (plant) =>{
-    //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
-    fetch('http://localhost:3003/plants' + plant._id, {
-        method:'PUT',
-        body: JSON.stringify({
-            name:this.state.name,
-            img:this.state.img,
-            lightNeed:this.state.lightNeed,
-            waterNeed:this.state.waterNeed,
-            description:this.state.description,
-            classification:this.state.classification,
-            username: this.state.username
-        }),
-        headers:{
-            'Content-Type':'application/json'
-        }
-    })
-    .then(res => res.json())
-    .then(resJson => {
-        const copyPlants = [...this.state.plants]
-        const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
-        copyPlants[findIndex] = resJson
-        this.setState({plants:[copyPlants]})
-    })
-  }
-
-  
 
     render (){
       return(
         <div>
           {/* pass down handle change to necessary modals */}
-          {this.state.plants.map((plant) =>{
+          {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
-              return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} id={plant._id} plants={this.state.plants}/>
+              return <Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} id={plant._id} plants={this.state.plants} key={i}/>
             }
           })
           }
