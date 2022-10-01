@@ -21,10 +21,9 @@ class EditForm extends Component{
         this.setState({
             [e.target.id]: e.target.value
         })
-      }
+    }
 
     handleSubmit = (e) =>{
-        //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
         e.preventDefault()
         const plant = JSON.stringify({
             name:this.state.name,
@@ -53,9 +52,7 @@ class EditForm extends Component{
             this.setState({plants:[copyPlants]})
         })
         this.props.closeModal()
-      }
-
-    
+    }
 
     render(){
         return(
