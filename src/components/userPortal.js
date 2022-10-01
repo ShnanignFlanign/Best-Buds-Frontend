@@ -80,6 +80,22 @@ class UserPortal extends Component{
     })
   }
 
+    //delete method 
+    handleDeletePlant = (id) =>{
+      console.log(id)
+      fetch(baseURL + '/plants/' + id, {
+        method:'DELETE'
+      })
+      .then(res =>{
+        const copyPlants = [...this.state.plants]
+        const findIndex = this.state.plants.findIndex((plant) => plant._id === id)
+        copyPlants.splice(findIndex,1)
+        this.setState({
+          plants: copyPlants
+        })
+      })
+    }
+
   
 
     render (){
@@ -89,7 +105,7 @@ class UserPortal extends Component{
           {/* pass down handle change to necessary modals */}
           {this.state.plants.map((plant) =>{
             if(plant.username === this.state.username){
-              return (<Plant name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants}/>)
+              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants}/>)
             }
           })
           }
