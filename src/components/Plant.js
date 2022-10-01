@@ -62,7 +62,7 @@ class Plant extends Component{
       {/* Map though the plants array here */}
       <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
-        <PlantModal newPlant={this.props.newPlant} handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
+        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
       </Card.Body>
     </Card>
      </Col>

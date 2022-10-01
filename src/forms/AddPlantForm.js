@@ -25,13 +25,13 @@ class AddPlantForm extends Component{
         this.setState({[e.target.id]: e.target.value})
     }
 
-    handleAddPlant = (plant) =>{
-        const copyPlants = [...this.state.plants]
-        copyPlants.push(plant)
-        this.setState({
-            plants:copyPlants,
-        })
-    }
+    // handleAddPlant = (plant) =>{
+    //     const copyPlants = [...this.state.plants]
+    //     copyPlants.push(plant)
+    //     this.setState({
+    //         plants:copyPlants,
+    //     })
+    // }
 
     //NEED A WAY TO RE RENDER PAGE SO THAT THE NEW PLANT SHOWS UP
     handleSubmit = (e) =>{
@@ -57,9 +57,7 @@ class AddPlantForm extends Component{
         .then(res => res.json())
         .then(resJson => {
             // console.log(resJson)
-            this.handleAddPlant(resJson)
-            this.props.getNewPlant(resJson)
-            // this.props.updateUserPortal(resJson)
+            this.props.handleAddPlant(resJson)
             this.setState({
                 name:'',
                 img:'',

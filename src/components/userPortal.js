@@ -16,8 +16,7 @@ class UserPortal extends Component{
       description: '',
       classification: '',
       username:this.props.username,
-      plants:[],
-      newPlant: ''
+      plants:[]
     }
   }
 
@@ -26,19 +25,7 @@ class UserPortal extends Component{
         [e.target.id]: e.target.value
     })
   }
-  getNewPlant = (plant) => {
-    this.setState({
-      newPlant: plant
-    })
-  }
 
-  updateUserPortal = (plant) =>{
-    console.log({plants: plant})
-    this.setState({
-      plants: plant,
-      newPlant: plant
-    })
-  }
 
   getPlants = () => {
     fetch(baseURL + '/plants')
@@ -58,6 +45,14 @@ class UserPortal extends Component{
     this.getPlants()
     console.log()
   }
+
+  handleAddPlant = (plant) =>{
+    const copyPlants = [...this.state.plants]
+    copyPlants.unshift(plant)
+    this.setState({
+        plants:copyPlants,
+    })
+}
 
   handleEdit = (plant) =>{
     //process.env.REACT_APP_BACKENDURL goes in fetch upon deployment of server
@@ -98,7 +93,7 @@ class UserPortal extends Component{
             }
           })
           }
-          <AddPlantModal getNewPlant={this.getNewPlant} handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
+          <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username} updateUserPortal={this.updateUserPortal}/>
         </div>
       )
     }
