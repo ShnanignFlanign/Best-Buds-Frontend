@@ -46,7 +46,7 @@ class AddPlantForm extends Component{
             username:this.props.username
         })
         console.log(plant)
-        fetch(baseURL, {
+        fetch(process.env.REACT_APP_BACKEND_URL + '/plants', {
             method:'POST',
             body: plant,
             headers:{
@@ -55,9 +55,7 @@ class AddPlantForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            // console.log(resJson)
             this.handleAddPlant(resJson)
-            // this.props.updateUserPortal(resJson)
             this.setState({
                 name:'',
                 img:'',

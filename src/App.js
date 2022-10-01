@@ -3,14 +3,9 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Welcome from './components/Welcome'
 import UserPortal from './components/userPortal'
-
 import {Container} from "react-bootstrap"
 import './App.css'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
-//base plants URL '/plants'
-//base users URL '/users'
-
-let baseURL = 'https://bestbud-backend.herokuapp.com'
 
 class App extends Component{
   constructor(){
@@ -41,7 +36,7 @@ class App extends Component{
   }
 
   getPlants = () => {
-    fetch(baseURL + '/plants')
+    fetch(process.env.REACT_APP_BACKEND_URL + '/plants')
      .then((res) => {
       if (res.status === 200) {
        return res.json();
@@ -64,7 +59,7 @@ class App extends Component{
     })
     console.log(data)
     e.preventDefault()
-    fetch(baseURL + '/users/signup', {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/users/signup', {
         method:'POST',
         body: data,
         headers:{
@@ -89,7 +84,7 @@ class App extends Component{
         password: this.state.password
     })
     e.preventDefault()
-    fetch(baseURL + '/users/signin', {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/users/signin', {
         method:'POST',
         body: data,
         headers:{

@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Row, Col, Form, Button} from "react-bootstrap";
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
-
 class EditForm extends Component{
     constructor(props){
         super(props)
@@ -38,7 +36,7 @@ class EditForm extends Component{
             username: this.state.username,
             id: this.state.id
         })
-        fetch(baseURL+ '/plants/' + this.state.id, {
+        fetch(process.env.REACT_APP_BACKEND_URL+ '/plants/' + this.state.id, {
             method:'PUT',
             body: plant,
             headers:{

@@ -3,8 +3,6 @@ import AddPlantModal from './AddPlantModal'
 import EditModal from './EditModal'
 import Plant from './Plant'
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
-
 class UserPortal extends Component{
   constructor(props){
     super(props)
@@ -32,7 +30,7 @@ class UserPortal extends Component{
   }
 
   getPlants = () => {
-    fetch(baseURL + '/plants')
+    fetch(process.env.REACT_APP_BACKEND_URL + '/plants')
      .then((res) => {
       if (res.status === 200) {
        return res.json();

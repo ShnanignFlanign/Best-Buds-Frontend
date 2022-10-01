@@ -4,7 +4,6 @@ import PlantModal from './PlantModal'
 import EditModal from './EditModal'
 import UserPortal from './userPortal'
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
 
 class Plant extends Component{
   constructor(props){
@@ -27,7 +26,7 @@ class Plant extends Component{
   //delete method 
   handleDeletePlant = (id) =>{
     console.log(this.state.id)
-    fetch(baseURL + '/plants/' + id, {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
       method:'DELETE'
     })
     .then(res =>{

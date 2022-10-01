@@ -3,8 +3,6 @@ import Plant from './Plant'
 import AddPlantModal from './AddPlantModal'
 import {Row, Col, Image} from "react-bootstrap"
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
-
 class Welcome extends Component{
   constructor(props){
     super(props)
@@ -14,7 +12,7 @@ class Welcome extends Component{
   }
 
   getPlants = () => {
-    fetch(baseURL + '/plants')
+    fetch(process.env.REACT_APP_BACKEND_URL + '/plants')
      .then((res) => {
       if (res.status === 200) {
        return res.json();
