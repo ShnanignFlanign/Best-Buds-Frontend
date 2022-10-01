@@ -4,6 +4,8 @@ import PlantModal from './PlantModal'
 import EditModal from './EditModal'
 import UserPortal from './userPortal'
 
+let baseURL = 'https://bestbud-backend.herokuapp.com'
+
 class Plant extends Component{
   constructor(props){
     super(props)
@@ -16,13 +18,16 @@ class Plant extends Component{
       classification: this.props.classification,
       description: this.props.description,
       username:this.props.username,
-      readMore: false
+      readMore: false,
+      id: this.props.id,
+      plants:this.props.plants
     }
   }
 
   //delete method 
   handleDeletePlant = (id) =>{
-    fetch('http://localhost:3003/plants/' + id, {
+    console.log(this.state.id)
+    fetch(baseURL + '/plants/' + id, {
       method:'DELETE'
     })
     .then(res =>{
@@ -51,7 +56,7 @@ class Plant extends Component{
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
-            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}}></i></Nav.Link>
+            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
       {/* Map though the plants array here */}
