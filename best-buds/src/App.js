@@ -80,20 +80,6 @@ class App extends Component{
         this.handleAddUser(resJson)
         this.setState({email:'',password:''})
     })
-    // console.log(this.state.email)
-    // fetch(baseURL + '/users/' + this.state.email)
-    // .then((res) => {
-    //   if (res.status === 200) {
-    //    return res.json();
-    //   } else {
-    //    return [];
-    //   }
-    //  })
-    //  .then((data) => {
-    //   console.log(data);
-    //   this.setState({ user: data.username });
-    //  });
-
   } //END handle signin
   
   componentDidMount(){
