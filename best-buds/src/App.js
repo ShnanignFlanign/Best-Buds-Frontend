@@ -30,7 +30,6 @@ class App extends Component{
     this.setState({users: user, isLoggedIn:true, username: user.foundUser.username})
   }
 
-
   handleChange = (e) =>{
     console.log(e.target.value)
     console.log(e.target.id)
@@ -98,7 +97,7 @@ class App extends Component{
     }
     return(
       <div>
-      <Header  updateUser={this.updateUser} handleChange={this.handleChange} />
+      <Header  updateUser={this.updateUser} handleChange={this.handleChange} isLoggedIn={this.state.isLoggedIn} />
       <Container className="pt-5 pb-5">
 
         {/* SIGNIN FORM */}

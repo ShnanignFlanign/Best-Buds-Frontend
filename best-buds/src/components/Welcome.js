@@ -47,7 +47,7 @@ class Welcome extends Component{
         
         <Row>
         <Col xs={12} md={6}>
-        <h2>Your Buds</h2>
+          <h2>Your Buds</h2>
         </Col>
         <Col xs={12} md={6} className="d-flex justify-content-end">
         {/* <Button variant="outline-success"> */}

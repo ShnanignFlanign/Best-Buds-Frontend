@@ -36,10 +36,10 @@ class RegisterForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            console.log('NewUser - resJson' + resJson)
+            console.log(resJson)
             this.props.updateUser(resJson)
             this.handleAddUser(resJson)
-            this.setState = ({
+            this.setState ({
                 username: '',
                 email:'',
                 password:''
