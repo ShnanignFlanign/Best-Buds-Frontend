@@ -30,6 +30,10 @@ class App extends Component{
     this.setState({users: user, isLoggedIn:true, username: user.foundUser.username})
   }
 
+  updateUserReg = (content) =>{
+    this.setState({users: content.user, isLoggedIn:true, username: content.user.username})
+  }
+
   handleChange = (e) =>{
     console.log(e.target.value)
     console.log(e.target.id)
@@ -77,10 +81,9 @@ class App extends Component{
     .then(res => res.json())
     .then(resJson => {
         console.log(resJson)
-        this.updateUser(resJson)
+        this.updateUserReg(resJson)
         this.handleAddUser(resJson)
         this.setState ({
-            username: '',
             email:'',
             password:''
         })
