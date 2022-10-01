@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Form, Button} from "react-bootstrap";
 
-let baseURL = 'https://bestbud-backend.herokuapp.com'
+let baseURL = 'https://bestbud-backend.herokuapp.com/plants'
 
 class AddPlantForm extends Component{
     constructor(props){
@@ -18,6 +18,12 @@ class AddPlantForm extends Component{
         }
     }
 
+    handleChange = (e) =>{
+        console.log(e.target.value)
+        console.log(e.target.id)
+        this.setState({[e.target.id]: e.target.value})
+    }
+
     handleAddPlant = (plant) =>{
         const copyPlants = [...this.state.plants]
         copyPlants.push(plant)
@@ -28,17 +34,20 @@ class AddPlantForm extends Component{
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        fetch(baseURL + '/plants', {
+        console.log(this.state)
+        const plant =  JSON.stringify({
+            name:this.state.name,
+            img:this.state.img,
+            lightNeed:this.state.lightNeed,
+            waterNeed:this.state.waterNeed,
+            description:this.state.description,
+            classification:this.state.classification,
+            username:this.props.username
+        })
+        console.log(plant)
+        fetch('https://bestbud-backend.herokuapp.com/plants', {
             method:'POST',
-            body: JSON.stringify({
-                name:this.state.name,
-                img:this.state.img,
-                lightNeed:this.state.lightNeed,
-                waterNeed:this.state.waterNeed,
-                description:this.state.description,
-                calssification:this.state.classification,
-                username:this.props.username
-            }),
+            body: plant,
             headers:{
                 'Content-Type':'application/json'
             }
@@ -72,7 +81,7 @@ class AddPlantForm extends Component{
                     htmlFor="name"
                     id="name"
                     name="name"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -83,7 +92,7 @@ class AddPlantForm extends Component{
                     htmlFor="img"
                     id="img"
                     name="img"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -94,7 +103,7 @@ class AddPlantForm extends Component{
                     htmlFor="lightNeed"
                     id="lightNeed"
                     name="lightNeed"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -105,7 +114,7 @@ class AddPlantForm extends Component{
                     htmlFor="waterNeed"
                     id="waterNeed"
                     name="waterNeed"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -115,7 +124,7 @@ class AddPlantForm extends Component{
                     htmlFor="description"
                     id="description"
                     name="description"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 />
                 </Form.Group>
 
@@ -125,7 +134,7 @@ class AddPlantForm extends Component{
                     htmlFor="classification"
                     id="classification"
                     name="classification"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                 >
                 <option>Algae</option>
                   <option>Moss</option>
