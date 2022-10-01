@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col, Image} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col} from "react-bootstrap";
 import SignInForm from '../forms/SignInForm'
 
 class SignInModal extends Component {
@@ -9,7 +9,7 @@ class SignInModal extends Component {
             isOpen: false
         };
     }
-  
+
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
@@ -18,14 +18,14 @@ class SignInModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button variant="success" onClick={this.openModal}>
+          <Button className="signInColor" onClick={this.openModal}>
             Sign In
           </Button>
         </div>
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
+          <Modal.Header className="border-0" closeButton>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="pb-4">
           <Container>
             <Row>
             <Col>
@@ -42,4 +42,3 @@ class SignInModal extends Component {
 }
 
 export default SignInModal
-
