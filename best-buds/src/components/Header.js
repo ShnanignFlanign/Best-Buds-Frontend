@@ -28,61 +28,8 @@ class Header extends Component{
         {/* Link to home page here */}
         <Navbar.Brand href="#">Best Buds</Navbar.Brand>
         <Nav>
-          {/* Link to sign in modal here */}
           {content}
         </Nav>
-        {/* REGISTER FORM */}
-        {/* <form onSubmit={this.props.handleRegister}>
-            <label htmlFor="username">Userame:</label>
-            <input
-                type="text"
-                htmlFor="username"
-                id="username"
-                name="username"
-                onChange={this.props.handleChange}
-            />
-
-            <label htmlFor="email">Email:</label>
-            <input
-                type="email"
-                htmlFor="email"
-                id="email"
-                name="email"
-                onChange={this.props.handleChange}
-            />
-
-            <label htmlFor="password">Password:</label>
-            <input
-                type="password"
-                htmlFor="password"
-                id="password"
-                onChange={this.props.handleChange}
-            />
-            <input type="submit" value="Create Account"/>
-        </form> */}
-        {/* END REGISTER FORM */}
-
-        {/* SIGNIN FORM */}
-        {/* <form onSubmit={this.props.handleSignin}>
-          <label htmlFor="email">Email:</label>
-          <input
-              type="email"
-              htmlFor="email"
-              id="email"
-              name="email"
-              onChange={this.props.handleChange}
-          />
-
-          <label htmlFor="password">Password:</label>
-          <input
-              type="password"
-              htmlFor="password"
-              id="password"
-              onChange={this.props.handleChange}
-          />
-          <input type="submit" value="Sign In"/>
-        </form> */}
-        {/* END SIGNIN FORM */}
       </Container>
       </Navbar>
       </div>
