@@ -12,8 +12,7 @@ class EditForm extends Component{
             description:this.props.description,
             classification:this.props.classification,
             username:this.props.username,
-            id:this.props.id,
-            plants: []
+            id:this.props.id
         }
     }
 
@@ -61,9 +60,16 @@ class EditForm extends Component{
     //     this.props.handleSubmit()
     // }
 
+    submit = (e) => {
+        e.preventDefault()
+        const plant = this.state
+        this.props.handleSubmit(e, plant)
+        this.props.closeModal()
+    }
+
     render(){
         return(
-            <form onSubmit={this.props.handleSubmit}>
+            <form onSubmit={this.submit}>
             <fieldset>
             <h3 className="text-center d-block">Change your Bud</h3>
             <Row className="justify-content-md-center">

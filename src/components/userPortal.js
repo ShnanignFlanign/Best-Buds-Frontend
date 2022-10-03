@@ -9,12 +9,6 @@ class UserPortal extends Component{
   constructor(props){
     super(props)
     this.state = {
-      name:'',
-      img: '',
-      lightNeed:'',
-      waterNeed: '',
-      description: '',
-      classification: '',
       username:this.props.username,
       plants:[],
       id:''
@@ -86,36 +80,38 @@ class UserPortal extends Component{
       })
     }
 
-    handleSubmit = (e) =>{
+    handleSubmit = (e, plant) =>{
       e.preventDefault()
-      const plant = JSON.stringify({
-          name:this.state.name,
-          img:this.state.img,
-          lightNeed:this.state.lightNeed,
-          waterNeed:this.state.waterNeed,
-          description:this.state.description,
-          classification:this.state.classification,
-          username: this.state.username,
-          id: this.state.id
-      })
-      fetch(process.env.REACT_APP_BACKEND_URL+ '/plants/' + this.state.id, {
+      // const plant = JSON.stringify({
+      //     name:this.state.name,
+      //     img:this.state.img,
+      //     lightNeed:this.state.lightNeed,
+      //     waterNeed:this.state.waterNeed,
+      //     description:this.state.description,
+      //     classification:this.state.classification,
+      //     username: this.state.username,
+      //     id: this.state.id
+      // })
+      fetch(process.env.REACT_APP_BACKEND_URL+ '/plants/' + plant.id, {
           method:'PUT',
-          body: plant,
+          body: JSON.stringify(plant),
           headers:{
               'Content-Type':'application/json'
           }
       })
-      .then(res => res.json())
-      .then(resJson => {
-          console.log('THIS IS WORKING')
-          console.log(resJson)
-          const copyPlants = [...this.state.plants]
-          const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
-          copyPlants[findIndex] = resJson
-          this.handleUpdatePortal(resJson)
-          this.setState({plants:[copyPlants]})
+      .then(res => {
+        if(res.ok === true){
+          return res.json()
+        }
       })
-      this.props.closeModal()
+      .then(resJson => {
+          console.log("resJson:",resJson)
+          const copyPlants = [...this.state.plants]
+          const findIndex = this.state.plants.findIndex(foo => foo._id === resJson._id)
+          console.log(findIndex)
+          copyPlants[findIndex] = resJson
+          this.setState({plants:copyPlants})
+      })
   }
 
     render (){
@@ -126,7 +122,7 @@ class UserPortal extends Component{
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
-              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants} handleUdatePortal={this.handleUpdatePortal} handleChangeId={this.handleChangeId} handleSubmit={this.handleSubmit}/>)
+              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleChangeId={this.handleChangeId} handleSubmit={this.handleSubmit}/>)
             }
           })
           }
