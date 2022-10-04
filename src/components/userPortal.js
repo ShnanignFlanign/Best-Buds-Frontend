@@ -44,7 +44,6 @@ class UserPortal extends Component{
 
   componentDidMount(){
     this.getPlants()
-    console.log()
   }
 
   handleUpdatePortal = (plant) =>{
@@ -58,7 +57,7 @@ class UserPortal extends Component{
 
   handleAddPlant = (plant) =>{
     const copyPlants = [...this.state.plants]
-    copyPlants.unshift(plant)
+    copyPlants.push(plant)
     this.setState({
         plants:copyPlants,
     })
