@@ -29,7 +29,6 @@ class SignInModal extends Component {
           <Container>
             <Row>
             <Col>
-            {/* <input type="text" onChange={this.props.handleChange}/> */}
             <form onSubmit={this.props.handleSignin}>
             <fieldset className="formDesign">
             <h3 className="text-center d-block">Best Buds</h3>

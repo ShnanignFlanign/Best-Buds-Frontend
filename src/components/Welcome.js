@@ -48,14 +48,10 @@ class Welcome extends Component{
           <h2>Your Buds</h2>
         </Col>
         <Col xs={12} md={6} className="d-flex justify-content-end">
-        {/* <Button variant="outline-success"> */}
           <AddPlantModal/>
-        {/* </Button> */}
         </Col>
         </Row>
         <Row className="pt-5">
-        {/* shouldnt we be mapping?? */}
-        {/* should we be using seeded data and a separate modal */}
         {this.state.plants.map((plant) =>{
             if(plant.username === 'default'){
               return (<Plant key={plant._id} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification}/>)

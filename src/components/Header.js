@@ -3,12 +3,11 @@ import {Nav,Button, Navbar, Container} from "react-bootstrap";
 import RegisterModal from './RegisterModal'
 import SignInModal from './SignInModal'
 
+const homePage = 'https://bestbuds-app.herokuapp.com'
+
 class Header extends Component{
   constructor(props){
     super(props)
-    this.state = {
-
-    }
   }
   
   render(){
@@ -19,17 +18,14 @@ class Header extends Component{
         <RegisterModal handleRegister={this.props.handleRegister} updateUserReg={this.props.updateUserReg} handleChange={this.props.handleChange}/>
       </>
     } else {
-
-      //THIS IS THE SIGN OUT BUTTON //
       content = <Button variant="success" onClick={this.props.handleSignout}>Sign Out</Button>
-
     }
+
     return(
       <div className="custom-hdr">
       <Navbar expand="lg">
       <Container>
-        {/* Link to home page here */}
-        <Navbar.Brand href="#">Best Buds</Navbar.Brand>
+        <Navbar.Brand href={homePage}>Best Buds</Navbar.Brand>
         <Nav>
           {content}
         </Nav>

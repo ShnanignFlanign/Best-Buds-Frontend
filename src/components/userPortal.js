@@ -64,8 +64,8 @@ class UserPortal extends Component{
     })
   }
 
-    //delete method 
-    handleDeletePlant = (id) =>{
+  //delete method 
+  handleDeletePlant = (id) =>{
       console.log(id)
       fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
         method:'DELETE'
@@ -78,7 +78,7 @@ class UserPortal extends Component{
           plants: copyPlants
         })
       })
-    }
+  }
 
     handleEdit = (e, plant) =>{
       e.preventDefault()
@@ -105,10 +105,8 @@ class UserPortal extends Component{
   }
 
     render (){
-
       return(
         <div>
-          {/* pass down handle change to necessary modals */}
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
