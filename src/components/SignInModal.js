@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col, Form} from "react-bootstrap";
 import SignInForm from '../forms/SignInForm'
 
 class SignInModal extends Component {
@@ -31,24 +31,36 @@ class SignInModal extends Component {
             <Col>
             {/* <input type="text" onChange={this.props.handleChange}/> */}
             <form onSubmit={this.props.handleSignin}>
-              <label htmlFor="email">Email:</label>
-              <input
+            <fieldset className="formDesign">
+            <h3 className="text-center d-block">Best Buds</h3>
+            <Form.Group className="mb-3 mt-4">
+            <Form.Label htmlFor="email"><h5>Email</h5></Form.Label>
+            <Form.Control
                   type="email"
                   htmlFor="email"
                   id="email"
                   name="email"
                   onChange={this.props.handleChange}
               />
+              </Form.Group>
 
-              <label htmlFor="password">Password:</label>
-              <input
+              <Form.Group className="mb-3 mt-4">
+              <Form.Label htmlFor="password"><h5>Password</h5></Form.Label>
+              <Form.Control
                   type="password"
                   htmlFor="password"
                   id="password"
                   onChange={this.props.handleChange}
               />
-              <input type="submit" value="Sign In"/>
+                </Form.Group>
+                <div className="d-flex align-items-center justify-content-center">
+                <Button className="buttonWidth" variant="success" size="lg" type="submit">
+                Sign In
+                </Button>
+                </div>
+            </fieldset>
             </form>
+            <h5 className="mt-4">Don't have an account? <a style={{ color: '#333333'}}href={``}>Register here.</a></h5>
               </Col>
             </Row>
             </Container>
