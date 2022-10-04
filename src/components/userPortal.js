@@ -80,18 +80,8 @@ class UserPortal extends Component{
       })
     }
 
-    handleSubmit = (e, plant) =>{
+    handleEdit = (e, plant) =>{
       e.preventDefault()
-      // const plant = JSON.stringify({
-      //     name:this.state.name,
-      //     img:this.state.img,
-      //     lightNeed:this.state.lightNeed,
-      //     waterNeed:this.state.waterNeed,
-      //     description:this.state.description,
-      //     classification:this.state.classification,
-      //     username: this.state.username,
-      //     id: this.state.id
-      // })
       fetch(process.env.REACT_APP_BACKEND_URL+ '/plants/' + plant.id, {
           method:'PUT',
           body: JSON.stringify(plant),
@@ -122,7 +112,7 @@ class UserPortal extends Component{
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
-              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleChangeId={this.handleChangeId} handleSubmit={this.handleSubmit}/>)
+              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleChangeId={this.handleChangeId} handleEdit={this.handleEdit}/>)
             }
           })
           }

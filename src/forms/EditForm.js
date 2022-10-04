@@ -63,7 +63,7 @@ class EditForm extends Component{
     submit = (e) => {
         e.preventDefault()
         const plant = this.state
-        this.props.handleSubmit(e, plant)
+        this.props.handleEdit(e, plant)
         this.props.closeModal()
     }
 

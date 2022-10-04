@@ -20,25 +20,7 @@ class Plant extends Component{
       id: this.props.id,
       plants:this.props.plants
     }
-  }
-
-
-  // //delete method 
-  // handleDeletePlant = (id) =>{
-  //   console.log(this.state.id)
-  //   fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
-  //     method:'DELETE'
-  //   })
-  //   .then(res =>{
-  //     const copyPlants = [...this.state.plants]
-  //     const findIndex = this.state.plants.findIndex((plant) => plant._id === id)
-  //     copyPlants.splice(findIndex,1)
-  //     this.setState({
-  //       plants: copyPlants
-  //     })
-  //   })
-  // }
-  
+  }  
 
  render(){
    return(
@@ -47,7 +29,7 @@ class Plant extends Component{
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}
-            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id} handleUdatePortal={this.props.handleUpdatePortal} handleChangeId={this.props.handleChangeId} handleSubmit={this.props.handleSubmit}/>
+            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit}/>
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
