@@ -49,7 +49,6 @@ class App extends Component{
      });
    }
 
-
   //START HANDLE REGISTER 
   handleRegister = (e) =>{
     const data = JSON.stringify({
