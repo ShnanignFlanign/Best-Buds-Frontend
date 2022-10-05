@@ -15,7 +15,7 @@ class PlantModal extends Component {
       username:this.props.username
     }
   }
-  
+
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
 
@@ -23,7 +23,7 @@ class PlantModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button className="plantNameColor" onClick={this.openModal}>
+          <Button className="plantNameColor" style={{backgroundColor:"transparent"}}  onClick={this.openModal}>
             <h4>{this.props.name}</h4>
           </Button>
         </div>
