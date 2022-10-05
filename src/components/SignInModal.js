@@ -60,8 +60,7 @@ class SignInModal extends Component {
                 </div>
             </fieldset>
             </form>
-            <h5 className="mt-4">Don't have an account? <a style={{ color: '#333333'}}href={``}>Register here.</a></h5>
-              </Col>
+            </Col>
             </Row>
             </Container>
           </Modal.Body>

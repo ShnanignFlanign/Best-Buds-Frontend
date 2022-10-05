@@ -70,8 +70,6 @@ class RegisterModal extends Component {
                   </div>
                   </fieldset>
                 </form>
-                <h5 className="mt-4">Already have an account? <a style={{ color: '#333333'}}href={``}>Sign-in here.</a></h5>
-
               </Col>
             </Row>
             </Container>
