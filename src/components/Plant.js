@@ -25,7 +25,7 @@ class Plant extends Component{
  render(){
    return(
      <Col>
-     <Card className="shadow"  style={{ width: '20rem'}}>
+     <Card className="shadow mt-4"  style={{ width: '20rem'}}>
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             {/* Edit functionality here */}

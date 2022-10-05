@@ -37,9 +37,14 @@ a:hover{
   padding: 80px 0 80px 0;
 }
 
+.goodFoot {
+ background-color:#2b472b;
+ height: 250px;
+}
+
+
 .custom-row {
   margin: 0 auto;
-  width: 80%;
 }
 
 .custom-hdr {
