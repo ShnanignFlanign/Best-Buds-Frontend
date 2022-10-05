@@ -31,7 +31,7 @@ class Welcome extends Component{
 
   render (){
     return(
-      <div>
+      <div className="mainContainer">
         <Row>
           <Col>
           <h1>Nuture your green thumbs with Best Buds. The app that helps you take care of your plants!</h1>
@@ -67,7 +67,6 @@ class Welcome extends Component{
         <Plant/>
         </Row>
         </Row>
-
       </div>
     )
   }
