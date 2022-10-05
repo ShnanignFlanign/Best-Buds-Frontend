@@ -31,10 +31,6 @@ a:hover{
   color: #1d301d
 }
 
-a:visited{
-  color: #1d301d
-}
-
 .main-container {
   margin: 0 auto;
   width: 80%;
@@ -102,6 +98,13 @@ Form.Control{
 }
 
 .signInColor:hover{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
+}
+
+.signInColor:visited{
   background-color:transparent !important;
   border: none !important;
   color: #2b472b !important;
