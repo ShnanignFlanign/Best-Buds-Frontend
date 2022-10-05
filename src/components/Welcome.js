@@ -40,10 +40,10 @@ class Welcome extends Component{
           <Image width={500} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
           </Col>
         </Row>
-        <Row>
-
-
         <Row className="welcomeDesign">
+
+
+        <Row>
         <Col xs={6} md={6}>
           <h2>Your Buds</h2>
         </Col>
@@ -53,7 +53,7 @@ class Welcome extends Component{
         {/* </Button> */}
         </Col>
         </Row>
-        <Row className="pt-5">
+        <Row className="pt-5 ms-auto">
         {/* shouldnt we be mapping?? */}
         {/* should we be using seeded data and a separate modal */}
         {this.state.plants.map((plant) =>{
@@ -62,8 +62,10 @@ class Welcome extends Component{
             }
           })
         }
+        <Plant/>
+        <Plant/>
+        <Plant/>
         </Row>
-
         </Row>
 
       </div>
