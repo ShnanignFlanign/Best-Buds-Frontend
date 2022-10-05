@@ -17,7 +17,7 @@ class RegisterModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button variant="success" onClick={this.openModal}>
+          <Button size="lg" variant="success" onClick={this.openModal}>
             Register
           </Button>
         </div>
