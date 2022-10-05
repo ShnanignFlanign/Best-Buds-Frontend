@@ -11,15 +11,9 @@ class UserPortal extends Component{
     this.state = {
       username:this.props.username,
       plants:[],
-      id:''
     }
   }
 
-  handleChangeId = (id) =>{
-    this.setState({
-      id:id
-    })
-  }
 
   handleChange = (e) =>{
     this.setState({
@@ -94,14 +88,17 @@ class UserPortal extends Component{
         }
       })
       .then(resJson => {
-          console.log("resJson:",resJson)
+          console.log(resJson)
           const copyPlants = [...this.state.plants]
           const findIndex = this.state.plants.findIndex(foo => foo._id === resJson._id)
           console.log(findIndex)
           copyPlants[findIndex] = resJson
+          console.log(copyPlants)
           this.setState({plants:copyPlants})
       })
   }
+
+  
 
     render (){
 
@@ -110,8 +107,9 @@ class UserPortal extends Component{
           {/* pass down handle change to necessary modals */}
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
           {this.state.plants.map((plant,i) =>{
+            console.log(plant)
             if(plant.username === this.state.username){
-              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={plant._id} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleChangeId={this.handleChangeId} handleEdit={this.handleEdit}/>)
+              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={i} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleEdit={this.handleEdit}/>)
             }
           })
           }
