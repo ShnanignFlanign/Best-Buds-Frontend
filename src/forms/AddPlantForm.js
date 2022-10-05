@@ -46,7 +46,8 @@ class AddPlantForm extends Component{
         })
         .then(res => res.json())
         .then(resJson => {
-            this.props.handleAddPlant(resJson)
+            console.log(resJson.plants)
+            this.props.handleAddPlant(resJson.plants)
             this.setState({
                 name:'',
                 img:'',

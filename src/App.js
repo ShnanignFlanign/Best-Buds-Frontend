@@ -99,13 +99,10 @@ class App extends Component{
   } //END handle signin
 
   handleSignout = () => {
-    // fetch(baseURL + '/users/signout')
-    // .then(() => {
       this.setState({
         isLoggedIn: false, 
         username: ''
       })
-    // })
   }
   
   componentDidMount(){
@@ -118,7 +115,7 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome plants={this.state.plants}/>
     } else {
-      content = <UserPortal username={this.state.username}handleChange={this.handleChange}/>
+      content = <UserPortal plants={this.state.plants} username={this.state.username}handleChange={this.handleChange}/>
     }
     return(
       <div>

@@ -20,14 +20,17 @@ class Plant extends Component{
       plants:this.props.plants
     }
   }  
+ 
 
  render(){
+  console.log(this.props.name)
    return(
      <Col>
      <Card className="shadow"  style={{ width: '20rem'}}>
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
-            <EditModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit}/>
+            {/* Edit functionality here */}
+            <EditModal handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit}/>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
@@ -35,7 +38,7 @@ class Plant extends Component{
       </Nav>
       <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
-        <PlantModal handleChange={this.props.handleChange} name={this.state.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} descritpion={this.state.description} classification={this.state.classification} username={this.state.username}/>
+        <PlantModal handleChange={this.props.handleChange} name={this.props.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.state.username}/>
       </Card.Body>
     </Card>
      </Col>
