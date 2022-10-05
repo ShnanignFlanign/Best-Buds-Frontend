@@ -31,6 +31,10 @@ a:hover{
   color: #1d301d
 }
 
+a:visited{
+  color: #1d301d
+}
+
 .main-container {
   margin: 0 auto;
   width: 80%;
