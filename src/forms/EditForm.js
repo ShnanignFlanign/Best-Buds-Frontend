@@ -9,6 +9,7 @@ class EditForm extends Component{
             img:this.props.img,
             lightNeed:this.props.lightNeed,
             waterNeed:this.props.waterNeed,
+            lastWatered: this.props.lastWatered,
             description:this.props.description,
             classification:this.props.classification,
             username:this.props.username,
@@ -84,6 +85,18 @@ class EditForm extends Component{
                     id="waterNeed"
                     name="waterNeed"
                     value={this.state.waterNeed}
+                    onChange={this.handleChange}
+                />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                <Form.Label htmlFor="lastWatered"><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Last Watered</span></i></Form.Label>
+                <Form.Control
+                    type="text"
+                    htmlFor="lastWatered"
+                    id="lastWatered"
+                    name="lastWatered"
+                    value={this.state.lastWatered}
                     onChange={this.handleChange}
                 />
                 </Form.Group>

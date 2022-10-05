@@ -105,7 +105,7 @@ class UserPortal extends Component{
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
-              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={i} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleEdit={this.handleEdit}/>)
+              return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={i} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleEdit={this.handleEdit} lastWatered={plant.lastWatered}/>)
             }
           })
           }
