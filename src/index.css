@@ -147,3 +147,14 @@ Form.Control{
 i {
   font-style: normal;
 }
+
+.welcomeDesign{
+  padding: 40px 0 80px 0;
+  border: solid 2px;
+  border-color: #cccccc;
+  border-radius: 5px;
+}
+
+ .welcomeDesign h2{
+  color: #2b472b;
+}
