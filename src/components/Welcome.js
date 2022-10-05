@@ -62,9 +62,6 @@ class Welcome extends Component{
             }
           })
         }
-        <Plant/>
-        <Plant/>
-        <Plant/>
         </Row>
         </Row>
       </div>
