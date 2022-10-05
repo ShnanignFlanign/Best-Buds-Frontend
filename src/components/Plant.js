@@ -23,13 +23,11 @@ class Plant extends Component{
  
 
  render(){
-  console.log(this.props.name)
    return(
      <Col>
      <Card className="shadow"  style={{ width: '20rem'}}>
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
-            {/* Edit functionality here */}
             <EditModal handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit}/>
           </Nav.Item>
           <Nav.Item>
