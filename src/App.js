@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Welcome from './components/Welcome'
-import UserPortal from './components/UserPortal'
+import UserPortal from './components/userPortal'
 import {Container} from "react-bootstrap"
 import './App.css'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
@@ -48,7 +48,6 @@ class App extends Component{
       this.setState({ plants: data.plants });
      });
    }
-
 
   //START HANDLE REGISTER 
   handleRegister = (e) =>{
@@ -99,13 +98,10 @@ class App extends Component{
   } //END handle signin
 
   handleSignout = () => {
-    // fetch(baseURL + '/users/signout')
-    // .then(() => {
       this.setState({
         isLoggedIn: false, 
         username: ''
       })
-    // })
   }
   
   componentDidMount(){
@@ -118,7 +114,7 @@ class App extends Component{
     if (!isLoggedIn){
       content = <Welcome plants={this.state.plants}/>
     } else {
-      content = <UserPortal username={this.state.username}handleChange={this.handleChange}/>
+      content = <UserPortal plants={this.state.plants} username={this.state.username}handleChange={this.handleChange}/>
     }
     return(
       <div>

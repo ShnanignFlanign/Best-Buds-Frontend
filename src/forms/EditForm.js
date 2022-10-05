@@ -22,44 +22,6 @@ class EditForm extends Component{
         })
     }
 
-    // handleSubmit = (e) =>{
-    //     e.preventDefault()
-    //     const plant = JSON.stringify({
-    //         name:this.state.name,
-    //         img:this.state.img,
-    //         lightNeed:this.state.lightNeed,
-    //         waterNeed:this.state.waterNeed,
-    //         description:this.state.description,
-    //         classification:this.state.classification,
-    //         username: this.state.username,
-    //         id: this.state.id
-    //     })
-    //     fetch(process.env.REACT_APP_BACKEND_URL+ '/plants/' + this.state.id, {
-    //         method:'PUT',
-    //         body: plant,
-    //         headers:{
-    //             'Content-Type':'application/json'
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(resJson => {
-    //         console.log('THIS IS WORKING')
-    //         console.log(resJson)
-    //         const copyPlants = [...this.state.plants]
-    //         const findIndex = this.state.plants.findIndex(plant => plant._id === resJson.id)
-    //         copyPlants[findIndex] = resJson
-    //         this.props.handleUpdatePortal(resJson)
-    //         this.setState({plants:[copyPlants]})
-    //     })
-    //     this.props.closeModal()
-    // }
-
-    // editChange = (e) =>{
-    //     e.preventDefault()
-    //     this.props.handleChangeId(this.state.id)
-    //     this.props.handleSubmit()
-    // }
-
     submit = (e) => {
         e.preventDefault()
         const plant = this.state

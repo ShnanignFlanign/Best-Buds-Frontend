@@ -29,7 +29,6 @@ class SignInModal extends Component {
           <Container>
             <Row>
             <Col>
-            {/* <input type="text" onChange={this.props.handleChange}/> */}
             <form onSubmit={this.props.handleSignin}>
             <fieldset className="formDesign">
           <Image width={200} className="m-auto d-block" src="https://i.imgur.com/a5HXVrf.png" />

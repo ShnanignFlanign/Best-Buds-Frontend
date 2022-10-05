@@ -7,7 +7,7 @@ class Welcome extends Component{
   constructor(props){
     super(props)
     this.state = {
-      plants:[]
+      plants: []
     }
   }
 
@@ -49,13 +49,14 @@ class Welcome extends Component{
         </Col>
         <Col xs={6} md={6} className="d-flex justify-content-end">
         {/* <Button variant="outline-success"> */}
+
           <AddPlantModal/>
-        {/* </Button> */}
         </Col>
         </Row>
         <Row className="pt-5 ms-auto">
         {/* shouldnt we be mapping?? */}
         {/* should we be using seeded data and a separate modal */}
+
         {this.state.plants.map((plant) =>{
             if(plant.username === 'default'){
               return (<Plant key={plant._id} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification}/>)
