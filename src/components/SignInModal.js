@@ -18,7 +18,7 @@ class SignInModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button size="lg" className="signInColor" onClick={this.openModal}>
+          <Button size="lg" className="signInColor" style={{backgroundColor:"transparent"}} onClick={this.openModal}>
             Sign In
           </Button>
         </div>
