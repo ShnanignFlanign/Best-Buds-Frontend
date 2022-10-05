@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col, Form} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col, Form, Image} from "react-bootstrap";
 import SignInForm from '../forms/SignInForm'
 
 class SignInModal extends Component {
@@ -18,7 +18,7 @@ class SignInModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button className="signInColor" onClick={this.openModal}>
+          <Button size="lg" className="signInColor" style={{backgroundColor:"transparent"}} onClick={this.openModal}>
             Sign In
           </Button>
         </div>
@@ -31,7 +31,7 @@ class SignInModal extends Component {
             <Col>
             <form onSubmit={this.props.handleSignin}>
             <fieldset className="formDesign">
-            <h3 className="text-center d-block">Best Buds</h3>
+          <Image width={200} className="m-auto d-block" src="https://i.imgur.com/a5HXVrf.png" />
             <Form.Group className="mb-3 mt-4">
             <Form.Label htmlFor="email"><h5>Email</h5></Form.Label>
             <Form.Control
@@ -59,8 +59,7 @@ class SignInModal extends Component {
                 </div>
             </fieldset>
             </form>
-            <h5 className="mt-4">Don't have an account? <a style={{ color: '#333333'}}href={``}>Register here.</a></h5>
-              </Col>
+            </Col>
             </Row>
             </Container>
           </Modal.Body>

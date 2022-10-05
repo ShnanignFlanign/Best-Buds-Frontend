@@ -1,15 +1,14 @@
 import React, { Component} from 'react'
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Row, Col, Image} from 'react-bootstrap';
 
 class Footer extends Component{
   render(){
     return(
-      <div>
-      <Container fluid fixed="bottom" className="custom-foot">
+      <div className="goodFoot">
+      <Container className="custom-foot">
         <Row className="custom-row">
-        <Col xs={4} md={6} style={{textAlign: "left"}}> <h2>Logo</h2><h5>&copy; Copyright 2022</h5></Col>
+        <Col xs={4} md={6} style={{textAlign: "left"}}><Image width={168} style={{paddingBottom: 15}} src="https://i.imgur.com/3dhsmJQ.png" /><h5>&copy; Copyright 2022</h5></Col>
         <Col xs={8} md={6} style={{textAlign: "right"}}>
           <h4>Developers</h4>
           <h5>Agustina Fin Scigliano

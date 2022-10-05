@@ -31,7 +31,7 @@ class Welcome extends Component{
 
   render (){
     return(
-      <div>
+      <div className="mainContainer">
         <Row>
           <Col>
           <h1>Nuture your green thumbs with Best Buds. The app that helps you take care of your plants!</h1>
@@ -40,28 +40,31 @@ class Welcome extends Component{
           <Image width={500} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
           </Col>
         </Row>
+        <Row className="welcomeDesign">
+
+
         <Row>
-       
-        
-        <Row>
-        <Col xs={12} md={6}>
+        <Col xs={6} md={6}>
           <h2>Your Buds</h2>
         </Col>
-        <Col xs={12} md={6} className="d-flex justify-content-end">
+        <Col xs={6} md={6} className="d-flex justify-content-end">
+        {/* <Button variant="outline-success"> */}
+
           <AddPlantModal/>
         </Col>
         </Row>
-        <Row className="pt-5">
+        <Row className="pt-5 ms-auto">
+        {/* shouldnt we be mapping?? */}
+        {/* should we be using seeded data and a separate modal */}
+
         {this.state.plants.map((plant) =>{
             if(plant.username === 'default'){
-              return (<Plant key={plant._id} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} descritpion={plant.description} classification={plant.classification}/>)
+              return (<Plant key={plant._id} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification}/>)
             }
           })
         }
         </Row>
-        
         </Row>
-
       </div>
     )
   }

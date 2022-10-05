@@ -19,19 +19,21 @@ class Plant extends Component{
       id: this.props.id,
       plants:this.props.plants
     }
+
   }  
  
 
  render(){
    return(
      <Col>
-     <Card className="shadow"  style={{ width: '20rem'}}>
+     <Card className="shadow mt-4"  style={{ width: '20rem'}}>
      <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
             <EditModal handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit}/>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
+          {/* Delete functionality here */}
+            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#8e8e8e'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
       <Card.Img variant="top"  src={this.state.img}/>

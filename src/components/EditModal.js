@@ -25,7 +25,7 @@ class EditModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Nav.Link href="#" onClick={this.openModal}><i class="bi bi-pencil" style={{ fontSize: 30, color: '#333333'}}></i> </Nav.Link>
+          <Nav.Link href="#" onClick={this.openModal}><i class="bi bi-pencil" style={{ fontSize: 30, color: '#8e8e8e'}}></i> </Nav.Link>
         </div>
         <Modal className="modal-xl pt-5 pr-5 pl-5" show={this.state.isOpen} onHide={this.closeModal}>
           <Modal.Header className="border-0" closeButton>

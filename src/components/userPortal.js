@@ -57,8 +57,9 @@ class UserPortal extends Component{
     })
   }
 
-  //delete method 
-  handleDeletePlant = (id) =>{
+
+    //delete method
+    handleDeletePlant = (id) =>{
       console.log(id)
       fetch(process.env.REACT_APP_BACKEND_URL + '/plants/' + id, {
         method:'DELETE'
@@ -112,6 +113,5 @@ class UserPortal extends Component{
       )
     }
   }
-  
+
   export default UserPortal;
-  

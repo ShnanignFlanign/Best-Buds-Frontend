@@ -10,7 +10,7 @@ class AddPlantModal extends Component {
       isOpen: false
     }
   }
-  
+
 
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });

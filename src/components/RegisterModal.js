@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col, Form, Image} from "react-bootstrap";
 import RegisterForm from '../forms/RegisterForm'
 
 class RegisterModal extends Component {
@@ -17,7 +17,7 @@ class RegisterModal extends Component {
     return (
       <>
         <div className="d-flex align-items-center justify-content-center">
-          <Button variant="success" onClick={this.openModal}>
+          <Button size="lg" variant="success" onClick={this.openModal}>
             Register
           </Button>
         </div>
@@ -29,33 +29,47 @@ class RegisterModal extends Component {
             <Row>
               <Col>
                 <form onSubmit={this.props.handleRegister}>
-                  <label htmlFor="username">Userame:</label>
-                  <input
+                <fieldset className="formDesign">
+                <Image width={200} className="m-auto d-block" src="https://i.imgur.com/a5HXVrf.png" />
+                    <Form.Group className="mb-3 mt-4">
+                    <Form.Label htmlFor="username"><h5>Username</h5></Form.Label>
+                      <Form.Control
                       type="text"
                       htmlFor="username"
                       id="username"
                       name="username"
                       onChange={this.props.handleChange}
                   />
+                  </Form.Group>
 
-                  <label htmlFor="email">Email:</label>
-                  <input
+                  <Form.Group className="mb-3">
+                  <Form.Label htmlFor="email"><h5>Email</h5></Form.Label>
+                  <Form.Control
                       type="email"
                       htmlFor="email"
                       id="email"
                       name="email"
                       onChange={this.props.handleChange}
                   />
+                  </Form.Group>
 
-                  <label htmlFor="password">Password:</label>
-                  <input
+                  <Form.Group className="mb-3">
+                  <Form.Label htmlFor="password"><h5>Password</h5></Form.Label>
+                  <Form.Control
                       type="password"
                       htmlFor="password"
                       id="password"
                       onChange={this.props.handleChange}
                   />
-                  <input type="submit" value="Create Account"/>
-              </form>
+                  </Form.Group>
+
+                  <div className="d-flex align-items-center justify-content-center">
+                  <Button className="buttonWidth" variant="success" size="lg" type="submit">
+                  Create Account
+                  </Button>
+                  </div>
+                  </fieldset>
+                </form>
               </Col>
             </Row>
             </Container>
