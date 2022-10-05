@@ -97,7 +97,7 @@ Form.Control{
   color: #2b472b;
 }
 
-.signInColor:hover{
+.signInColor:link{
   background-color:transparent !important;
   border: none !important;
   color: #2b472b !important;
@@ -105,6 +105,20 @@ Form.Control{
 }
 
 .signInColor:visited{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
+}
+
+.signInColor:hover{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
+}
+
+.signInColor:active{
   background-color:transparent !important;
   border: none !important;
   color: #2b472b !important;
