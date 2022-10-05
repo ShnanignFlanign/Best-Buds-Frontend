@@ -20,7 +20,7 @@ class Plant extends Component{
       id: this.props.id,
       plants:this.props.plants
     }
-  }  
+  }
 
  render(){
    return(
@@ -33,7 +33,7 @@ class Plant extends Component{
           </Nav.Item>
           <Nav.Item>
           {/* Delete functionality here */}
-            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#333333'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
+            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#8e8e8e'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
       {/* Map though the plants array here */}
