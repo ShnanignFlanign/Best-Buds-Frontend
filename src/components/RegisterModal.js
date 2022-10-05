@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Modal, Button, Container, Row, Col, Form} from "react-bootstrap";
+import { Modal, Button, Container, Row, Col, Form, Image} from "react-bootstrap";
 import RegisterForm from '../forms/RegisterForm'
 
 class RegisterModal extends Component {
@@ -30,7 +30,7 @@ class RegisterModal extends Component {
               <Col>
                 <form onSubmit={this.props.handleRegister}>
                 <fieldset className="formDesign">
-                <h3 className="text-center d-block">Best Buds</h3>
+                <Image width={200} className="m-auto d-block" src="https://i.imgur.com/a5HXVrf.png" />
                     <Form.Group className="mb-3 mt-4">
                     <Form.Label htmlFor="username"><h5>Username</h5></Form.Label>
                       <Form.Control

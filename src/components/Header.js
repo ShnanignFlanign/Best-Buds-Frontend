@@ -30,7 +30,7 @@ class Header extends Component{
       <Container>
         {/* Link to home page here */}
         <Navbar.Brand>
-        <Image width={200} src="https://i.imgur.com/a5HXVrf.png" roundedCirle />
+        <Image width={200} src="https://i.imgur.com/a5HXVrf.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
