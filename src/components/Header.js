@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import {Nav,Button,Navbar,Container,Row,Col,Image} from "react-bootstrap";
+import {Nav,Button,Navbar,Container,Image} from "react-bootstrap";
 import RegisterModal from './RegisterModal'
 import SignInModal from './SignInModal'
 
@@ -32,10 +32,12 @@ class Header extends Component{
         <Navbar.Brand>
         <Image width={200} src="https://i.imgur.com/a5HXVrf.png" roundedCirle />
         </Navbar.Brand>
-
-        <Nav>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+        <Nav className="ms-auto">
           {content}
         </Nav>
+        </Navbar.Collapse>
       </Container>
       </Navbar>
       </div>
