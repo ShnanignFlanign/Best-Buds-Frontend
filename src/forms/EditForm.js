@@ -90,7 +90,7 @@ class EditForm extends Component{
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                <Form.Label htmlFor="lastWatered"><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Last Watered</span></i></Form.Label>
+                <Form.Label htmlFor="lastWatered"><i class="bi bi-calendar-heart" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Last Watered</span></i></Form.Label>
                 <Form.Control
                     type="text"
                     htmlFor="lastWatered"
