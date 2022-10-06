@@ -42,6 +42,7 @@ class PlantModal extends Component {
               <ul className="noListStyle">
               <li><i class="bi bi-sun-fill" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Light Need: {this.props.lightNeed}</span></i></li>
               <li><i class="bi bi-droplet-half" style={{ fontSize: 25, color: '#333333'}}><span style={{ fontSize:20}}> Water Need: {this.props.waterNeed}</span></i></li>
+              <li style={{ fontSize: 20, color: '#333333'}}>Last Watered: {this.props.lastWatered}</li>
               </ul>
               <h5>Description</h5>
                 <p>{this.props.description}</p>
