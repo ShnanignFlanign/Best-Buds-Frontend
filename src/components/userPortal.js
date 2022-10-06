@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import AddPlantModal from './AddPlantModal'
 import EditModal from './EditModal'
 import Plant from './Plant'
+import {Row, Col} from "react-bootstrap"
 
 let baseURL = process.env.REACT_APP_BASE_URL
 
@@ -102,13 +103,26 @@ class UserPortal extends Component{
     render (){
       return(
         <div>
+
+        <Row>
+        <Col xs={6} md={6}>
+          <h2 className="budGreeting">{this.props.username.charAt(0).toUpperCase() + this.props.username.slice(1)}'s Buds</h2>
+        </Col>
+        <Col xs={6} md={6} className="d-flex justify-content-end">
           <AddPlantModal handleAddPlant={this.handleAddPlant} handleChange={this.props.handleChange} username={this.state.username}/>
+          </Col>
+          </Row>
+
+          <Row className="pt-5 ms-auto">
           {this.state.plants.map((plant,i) =>{
             if(plant.username === this.state.username){
               return (<Plant handleDeletePlant={this.handleDeletePlant} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification} username={this.state.username} key={i} id={plant._id} plants={this.state.plants} handleUpdatePortal={this.handleUpdatePortal} handleEdit={this.handleEdit} lastWatered={plant.lastWatered}/>)
             }
           })
           }
+          </Row>
+
+
         </div>
       )
     }

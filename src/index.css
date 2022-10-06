@@ -141,8 +141,9 @@ Form.Control{
 
 .plantNameColor{
   background-color:transparent;
-  border: none;
-  color: #2b472b;
+  border: none !important;
+  color: #2b472b !important;
+  text-decoration: underline;
 }
 
 .plantNameColor:hover{

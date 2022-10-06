@@ -22,6 +22,7 @@ class Plant extends Component{
     }
   }  
 
+
  render(){
    return(
      <Col>
@@ -35,7 +36,7 @@ class Plant extends Component{
             <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#8e8e8e'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
-      <Card.Img variant="top"  src={this.state.img}/>
+      <Card.Img variant="top" style={{ width:320, height:320, objectFit:'cover',}} src={this.state.img}/>
       <Card.Body className="text-center">
         <PlantModal handleChange={this.props.handleChange} name={this.props.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.state.username} lastWatered={this.state.lastWatered}/>
       </Card.Body>
