@@ -59,7 +59,7 @@ class Welcome extends Component{
 
         {this.state.plants.map((plant) =>{
             if(plant.username === 'default'){
-              return (<Plant key={plant._id} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification}/>)
+              return (<Plant key={plant._id} username={plant.username} name={plant.name} img={plant.img} lightNeed={plant.lightNeed} waterNeed={plant.waterNeed} description={plant.description} classification={plant.classification}/>)
             }
           })
         }

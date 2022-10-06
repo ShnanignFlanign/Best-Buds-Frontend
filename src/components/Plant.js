@@ -23,18 +23,34 @@ class Plant extends Component{
   }  
 
  render(){
-   return(
-     <Col>
-     <Card className="shadow mt-4"  style={{ width: '20rem'}}>
-     <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+
+  const user = this.props.username;
+  let content;
+  if(user !== "default") {
+    content = <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Nav.Item>
-            <EditModal handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit} lastWatered={this.props.lastWatered}/>
+            <EditModal  handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit} lastWatered={this.props.lastWatered}/>
           </Nav.Item>
           <Nav.Item>
-          {/* Delete functionality here */}
             <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#8e8e8e'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
           </Nav.Item>
       </Nav>
+  } else {
+    content = <div></div>
+  }
+
+   return(
+     <Col>
+     <Card className="shadow mt-4"  style={{ width: '20rem'}}>
+     {/* <Nav style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Nav.Item>
+            <EditModal  handleChange={this.props.handleChange} name={this.props.name} img={this.props.img} lightNeed={this.props.lightNeed} waterNeed={this.props.waterNeed} description={this.props.description} classification={this.props.classification} username={this.props.username} id={this.state.id} handleUpdatePortal={this.props.handleUpdatePortal} handleEdit={this.props.handleEdit} lastWatered={this.props.lastWatered}/>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#" className="float-right"><i class="bi bi-x-square" style={{ fontSize: 30, color: '#8e8e8e'}} onClick={()=>this.props.handleDeletePlant(this.state.id)}></i></Nav.Link>
+          </Nav.Item>
+      </Nav> */}
+      { content }
       <Card.Img variant="top"  src={this.state.img}/>
       <Card.Body className="text-center">
         <PlantModal handleChange={this.props.handleChange} name={this.props.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.state.username} lastWatered={this.state.lastWatered}/>
