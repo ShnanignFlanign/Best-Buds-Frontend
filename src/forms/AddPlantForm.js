@@ -11,6 +11,7 @@ class AddPlantForm extends Component{
             img:'',
             lightNeed:'',
             waterNeed:'',
+            lastWatered: '',
             description:'',
             classification:'',
             username:'',
@@ -107,6 +108,17 @@ class AddPlantForm extends Component{
                     htmlFor="waterNeed"
                     id="waterNeed"
                     name="waterNeed"
+                    onChange={this.handleChange}
+                />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                <Form.Label htmlFor="lastWatered"><h5>Last Watered</h5></Form.Label>
+                <Form.Control
+                    type="text"
+                    htmlFor="lastWatered"
+                    id="lastWatered"
+                    name="lastWatered"
                     onChange={this.handleChange}
                 />
                 </Form.Group>
