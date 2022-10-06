@@ -40,16 +40,24 @@ class Plant extends Component{
     content = <div></div>
   }
 
+  let img;
+  if (this.props.img === ''){
+    img = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Plant_No_Image.svg/2048px-Plant_No_Image.svg.png"
+  } else {
+    img = this.props.img
+  }
+
+
    return(
      <Col>
      <Card className="shadow mt-4"  style={{ width: '20rem'}}>
       { content }
-      <Card.Img variant="top" style={{ width:320, height:320, objectFit:'cover',}} src={this.state.img}/>
+      <Card.Img variant="top" style={{ width:320, height:320, objectFit:'cover',}} src={img} />
       <Card.Body className="text-center">
-        <PlantModal handleChange={this.props.handleChange} name={this.props.name} img={this.state.img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.state.username} lastWatered={this.state.lastWatered}/>
+        <PlantModal handleChange={this.props.handleChange} name={this.props.name} img={img} lightNeed={this.state.lightNeed} waterNeed={this.state.waterNeed} description={this.state.description} classification={this.state.classification} username={this.state.username} lastWatered={this.state.lastWatered}/>
       </Card.Body>
-    </Card>
-     </Col>
+      </Card>
+      </Col>
    )
  }
 }
