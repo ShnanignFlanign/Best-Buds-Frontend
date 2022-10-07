@@ -6,7 +6,7 @@ Best Buds is a personal plant tracking full CRUD functionality web application, 
 The front end was created entirely with React, with a single-page web app approach. Modals and conditional rendering are used to display different information depending on a user's actions, which in turn ensures a fluid user experience. The back end was implemented using MongoDB and Node.js.
 
 
-#User Stories
+## User Stories
 
 > - As a user, I want to read about how the app works
 > - As a user, I want to log in or create an account to access my plant data
