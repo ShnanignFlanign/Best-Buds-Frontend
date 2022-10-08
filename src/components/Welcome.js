@@ -47,9 +47,6 @@ class Welcome extends Component{
           <h2>Your Buds</h2>
         </Col>
         <Col xs={6} md={6} className="d-flex justify-content-end">
-        {/* <Button variant="outline-success"> */}
-
-          <AddPlantModal/>
         </Col>
         </Row>
         <Row className="pt-5 ms-auto">
