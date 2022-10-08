@@ -35,8 +35,8 @@ class PlantModal extends Component {
           <Container>
             <Row className="justify-content-md-center">
             <Col xl={4}>
-              <h4>{this.props.name}</h4>
-              <Image width={300} src={this.state.img} roundedCircle />
+              <h2>{this.props.name}</h2>
+              <Image style={{ width:300, height:300, objectFit:'cover',}} src={this.state.img} roundedCircle />
             </Col>
               <Col xl={6}>
               <ul className="noListStyle">

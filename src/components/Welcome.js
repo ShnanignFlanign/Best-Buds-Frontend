@@ -40,9 +40,8 @@ class Welcome extends Component{
           <Image width={500} src="https://www.gardeningknowhow.com/wp-content/uploads/2008/05/rubber-plant.jpg" roundedCirle />
           </Col>
         </Row>
+
         <Row className="welcomeDesign">
-
-
         <Row>
         <Col xs={6} md={6}>
           <h2>Your Buds</h2>

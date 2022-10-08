@@ -20,7 +20,7 @@ class Plant extends Component{
       id: this.props.id,
       plants:this.props.plants
     }
-  }  
+  }
 
 
  render(){
