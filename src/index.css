@@ -143,7 +143,7 @@ Form.Control{
   background-color:transparent;
   border: none !important;
   color: #2b472b !important;
-  text-decoration: underline;
+  box-shadow: none !important;
 }
 
 .plantNameColor:hover{
@@ -151,6 +151,12 @@ Form.Control{
   border: none !important;
   color: #2b472b !important;
   text-decoration: underline;
+}
+
+.plantNameColor:visited{
+  background-color:transparent !important;
+  border: none !important;
+  color: #2b472b !important;
 }
 
 .noListStyle{
@@ -171,4 +177,29 @@ i {
 
  .welcomeDesign h2{
   color: #2b472b;
+}
+
+.budGreeting h2{
+  color: #2b472b;
+}
+
+
+@media (max-width: 600px) {
+  .mainContainer h1{
+    font-size: 40px;
+  }
+
+  .mainContainer img{
+  width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainContainer h1{
+    font-size: 22px;
+  }
+
+  .mainContainer img{
+  width: 200px;
+  }
 }
