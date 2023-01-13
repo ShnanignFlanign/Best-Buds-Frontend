@@ -14,3 +14,8 @@ The front end was created entirely with React, with a single-page web app approa
 > - As a user, I want to click on a specific plant and pull up their information (name, image, water needs, last time it was watered, light needs, general info)
 > - As a user, I want to edit a specific plants information
 > - As a user, I want to delete a plant
+
+## Screenshots 
+
+<img width="956" alt="best-buds-index" src="https://user-images.githubusercontent.com/104398805/212394730-57f34891-060f-42cb-a40d-473778e8d462.png">
+<img width="855" alt="best-buds-show" src="https://user-images.githubusercontent.com/104398805/212394770-aa420936-8f91-4461-bc42-8bb22a078df3.png">
